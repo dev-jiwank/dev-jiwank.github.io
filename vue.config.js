@@ -4,6 +4,7 @@ const path = require('path')
 const { NODE_ENV, VUE_APP_TITLE = '' } = process.env
 
 const config = {
+  outputDir: 'docs',
   transpileDependencies: false,
   productionSourceMap: NODE_ENV === 'production',
   chainWebpack: (setting) => {
