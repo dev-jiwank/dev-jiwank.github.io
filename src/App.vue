@@ -15,3 +15,14 @@ export default {
   }
 }
 </script>
+
+<style>
+  body {
+    margin: 0;
+  }
+  #app {
+    background: #f5f7f9;
+    width : 100vw;
+    height : 100vh;
+  }
+</style>

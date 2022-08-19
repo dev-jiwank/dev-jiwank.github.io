@@ -1,48 +1,70 @@
 <template>
-<div class="icon-bar">
-    <Menu mode="horizontal" modeactive-name="1-1" :open-names="['1-1']">
-        <Submenu name="1">
-            <template #title>
-                <Icon type="ios-analytics" />
-                Navigation One
-            </template>
-            <MenuGroup title="Item 1">
-                <MenuItem name="1-1" router-link to="/jk">Option 1</MenuItem>
-                <MenuItem name="1-2" to="jiwan">Option 2</MenuItem>
-            </MenuGroup>
-            <MenuGroup title="Item 2">
-                <MenuItem name="1-3">Option 3</MenuItem>
-                <MenuItem name="1-4">Option 4</MenuItem>
-            </MenuGroup>
-        </Submenu>
-        <Submenu name="2">
-            <template #title>
-                <Icon type="ios-filing" />
-                Navigation Two
-            </template>
-            <MenuItem name="2-1">Option 5</MenuItem>
-            <MenuItem name="2-2">Option 6</MenuItem>
-            <Submenu name="3">
-                <template #title>Submenu</template>
-                <MenuItem name="3-1">Option 7</MenuItem>
-                <MenuItem name="3-2">Option 8</MenuItem>
-            </Submenu>
-        </Submenu>
-        <Submenu name="4">
-            <template #title>
-                <Icon type="ios-cog" />
-                Navigation Three
-            </template>
-            <MenuItem name="4-1">Option 9</MenuItem>
-            <MenuItem name="4-2">Option 10</MenuItem>
-            <MenuItem name="4-3">Option 11</MenuItem>
-            <MenuItem name="4-4">Option 12</MenuItem>
-        </Submenu>
-    </Menu>
+<div class="layout">
+    <Layout>
+        <Header>
+            <Menu mode="horizontal" modeactive-name="1" :open-names="['1-1']">
+                <div class="layout-logo"></div>
+                <div class="layout-nav">
+
+                    <MenuItem to="home" name="1">
+                        <Icon type="ios-paper" />
+                        Home
+                    </MenuItem>
+
+                    <MenuItem to="jiwan" name="2">
+                        <Icon type="ios-people" />
+                        About
+                    </MenuItem>
+
+                    <MenuItem to="login" name="3">
+                        <Icon type="ios-people" />
+                        Works
+                    </MenuItem>
+
+                    <MenuItem to="contact" name="4">
+                        <Icon type="ios-people" />
+                        Contact
+                    </MenuItem>
+
+                </div>
+            </Menu>
+        </Header>
+    </Layout>
 </div>
 </template>
+
 <script>
     export default {
     };
 </script>
 
+<style scoped>
+.layout{
+    border: 1px solid #d7dde4;
+    background: #f5f7f9;
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+.layout-logo{
+    width: 100px;
+    height: 30px;
+    background: #5b6270;
+    border-radius: 3px;
+    float: left;
+    position: relative;
+    top: 15px;
+    left: 20px;
+}
+.layout-nav{
+    width: 420px;
+    margin: 0 auto;
+    margin-right: 20px;
+}
+.layout-footer-center{
+    text-align: center;
+}
+.layout .ivu-layout-header {
+    background: #191a23;
+}
+</style>
