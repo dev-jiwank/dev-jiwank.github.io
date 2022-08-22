@@ -1,28 +1,20 @@
 <template>
   <SidebarMenu/>
-  <RouterView/>
 </template>
 
 <script>
-import SidebarMenu from '@/views/Base.vue';
-import { RouterView } from 'vue-router';
+import SidebarMenu from '@/views/Base.vue'
 
 export default {
   name: 'App',
   components: {
-    SidebarMenu,
-    RouterView
+    SidebarMenu
   }
 }
 </script>
 
 <style>
-  body {
-    margin: 0;
-  }
   #app {
-    background: #f5f7f9;
-    width : 100vw;
-    height : 100vh;
+    height : 100%;
   }
 </style>

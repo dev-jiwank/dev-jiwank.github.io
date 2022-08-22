@@ -15,6 +15,7 @@
     "core-js": "^3.8.3",
     "view-ui-plus": "^1.1.0",
     "vue": "^3.2.13",
+    "vue-responsive-video-background-player": "^2.2.3",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },
@@ -40,5 +41,19 @@
   "engines": {
     "node": ">= 12.0.0",
     "npm": ">= 6.9.0"
-  }
+  },
+  "main": "babel.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-jiwank/dev-jiwank.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dev-jiwank/dev-jiwank.github.io/issues"
+  },
+  "homepage": "https://github.com/dev-jiwank/dev-jiwank.github.io#readme"
 }

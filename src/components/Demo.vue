@@ -19,9 +19,8 @@ export default {
 
 <style lang="less" scoped>
 .demo{
-  color: lightcoral;
   font-size: @font-size;
   text-align: center;
-  margin: 300px 0 0 0;
-}
+  margin-top: 200px;
+  }
 </style>
