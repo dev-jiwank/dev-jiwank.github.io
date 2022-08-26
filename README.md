@@ -1,5 +1,3 @@
-# view-ui-project-vuecli
-This project build for Vue3, Vue-router, Vuex, ViewUIPlus and Vue-cli.
 ## Install
 ```shell
 npm install
