@@ -1,29 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Intro from '@/views/intro.vue'
-import Home from '@/views/home.vue'
-import Jiwan from '@/views/jiwan.vue'
-import Login from '@/views/login.vue'
+import Main from '@/views/main.vue'
+import practice from '@/views/parctice.vue'
+import practice2 from '@/views/parctice2.vue'
 
 const routes = [
   {
     path: '',
     name: '',
-    component: Intro
+    component: Main
   },
   {
     path: '/home',
     name: 'home',
-    component: Home
+    component: Main
   },
   {
-    path: '/jiwan',
-    name: 'jiwan',
-    component: Jiwan
+    path: '/parctice',
+    name: 'parctice',
+    component: practice
   },
   {
-    path: '/login',
-    name: 'login',
-    component: Login
+    path: '/parctice2',
+    name: 'parctice2',
+    component: practice2
   }
 ]
 

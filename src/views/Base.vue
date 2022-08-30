@@ -1,60 +1,72 @@
 <template>
     <div class="layout">
         <Layout>
-            <Header :style="{position: 'fixed', width: '100%'}">
-                <Menu mode="horizontal" theme="dark" active-name="1">
-                    <div class="layout-logo"></div>
+            <Header :style="{position: 'fixed', width: '100%', background: 'white'}">
+                <Menu mode="horizontal" theme="light" active-name="1" >
+                    <img class="layout-logo" alt="logo" src="../assets/logo_head.png">
                     <div class="layout-nav">
                         <MenuItem to="home" name="1">
-                            <Icon type="ios-navigate"></Icon>
+                            <!-- <Icon type="md-home"></Icon> -->
                             Home
                         </MenuItem>
-                        <MenuItem to="jiwan" name="2">
-                            <Icon type="ios-keypad"></Icon>
+                        <MenuItem to="parctice" name="2">
                             About
                         </MenuItem>
-                        <MenuItem to="login" name="3">
-                            <Icon type="ios-analytics"></Icon>
-                            Works
-                     </MenuItem>
-                        <MenuItem name="4">
-                            <Icon type="ios-paper"></Icon>
+                        <MenuItem to="parctice2" name="3">
                             Contact
                         </MenuItem>
                     </div>
+
+
+                    <!-- <div class="layout-nav">
+                        <Dropdown>
+                            <a href="javascript:void(0)">
+                                <Icon type="md-list"></Icon>
+                            </a>
+                            <template #list>
+                                <DropdownMenu>
+                                    <DropdownItem>Home</DropdownItem>
+                                    <DropdownItem>About</DropdownItem>
+                                    <DropdownItem>Contact</DropdownItem>
+                                </DropdownMenu>
+                            </template>
+                        </Dropdown>
+                    </div> -->
+
+
                 </Menu>
             </Header>
-            <Content :style="{margin: '88px 20px 0', background: '#fff', minHeight: '650px'}">
+            <Content class="content-layout">
                 <router-view></router-view>
             </Content>
-            <Footer class="layout-footer-center">1996-&copy; Jiwan Kim </Footer>
+            <Footer class="layout-footer-center">1996 &copy; Jiwan Kim </Footer>
         </Layout>
     </div>
 </template>
 <script>
 export default {
-
 }
 </script>
 
 <style>
     .layout{
-        border: 1px solid #d7dde4;
         background: #f5f7f9;
         position: relative;
         border-radius: 4px;
         overflow: hidden;
         height: 100%;
     }
+    .ivu-layout-header{
+        z-index: 3;
+    }
     .layout-logo{
-        width: 100px;
-        height: 30px;
-        background: #5b6270;
+        width: 40px;
+        height: 40px;
         border-radius: 3px;
         float: left;
         position: relative;
-        top: 15px;
-        left: 20px;
+        top: 10px;
+        left: -15px;
     }
     .layout-nav{
         width: 420px;
@@ -64,5 +76,10 @@ export default {
     .layout-footer-center{
         text-align: center;
     }
-  .dev-run-preview .dev-run-preview-edit{ display: none }
+    .content-layout{
+        margin: 70px 0px 0;
+        background: #fff;
+        min-height: 650px;
+    }
+    .dev-run-preview .dev-run-preview-edit{ display: none }
 </style>
