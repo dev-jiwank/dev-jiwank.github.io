@@ -3,7 +3,7 @@
         <Layout>
             <Header :style="{position: 'fixed', width: '100%', background: 'white'}">
                 <Menu mode="horizontal" theme="light" active-name="1" >
-                    <img class="layout-logo" alt="logo" src="../assets/logo_head.png">
+                    <!-- <img class="layout-logo" alt="logo" src="../assets/logo_head.png"> -->
                     <div class="layout-nav">
                         <MenuItem to="home" name="1">
                             <!-- <Icon type="md-home"></Icon> -->
@@ -77,7 +77,7 @@ export default {
         text-align: center;
     }
     .content-layout{
-        margin: 70px 0px 0;
+        margin: 70px 20px 0;
         background: #fff;
         min-height: 650px;
     }

@@ -1,111 +1,77 @@
 <template>
-<Title>1</Title>
-    <Grid :border="false" center square>
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
+    <!-- <Row>
+        <Col span="12">
+            <PageHeader title="PageHeader"></PageHeader>
+        </Col>
+        <Col span="12">
+            <Image :src="this.Imagelist[0]"/>
+        </Col>
+    </Row> -->
 
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
-        
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
-    </Grid>
-<Title>2</Title>
-    <Grid :border="false" center square>
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
+    <PageHeader>
+        <template #title>
+            <div class="demo-title">
+                <Title :level="1">
+                    JIWAN
+                </Title>
+            </div>
+        </template>
 
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
-        
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
-    </Grid>
-<Title>3</Title>
-    <Grid :border="false" center square>
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
+        <template #extra>
+            <div class="demo-extra-img">
+                <Image :src="this.Imagelist[0]"/>
+            </div>
+        </template>
 
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
-        
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
-    </Grid>
-<Title>4</Title>
-    <Grid :border="false" center square>
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
+        <template #content>
+            {{ this.data["content"] }}<br>
+            {{ this.data["content_2"]}}
+            <Space direction="vertical" type="flex">
+                <Button type="success" long>SUBMIT</Button>
+                <Button type="error" long>DELETE</Button>
+            </Space>
+        </template>
+    </PageHeader>
 
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
-        
-        <GridItem>
-            <Card>
-                <Image :src="this.verticalUrlList[0]"/>
-                <h3>asd</h3>
-            </Card>
-        </GridItem>
-    </Grid>
 </template>
 <script>
-import Vue_img from '@/assets/vue.png'
+import Banner from '@/assets/Banner.png'
 
 export default {
 components: {
-    Vue_img
-    },
-    data() {
+    Banner
+},
+    data () {
         return {
-            verticalUrlList: [
-                Vue_img,
-                'https://file.iviewui.com/images/image-demo-1.jpg'
-            ]
+            Imagelist: [
+                Banner
+            ],
+            data: 
+                {
+                    content: 'This is the content, this is the content, this is the content, this is the content.',
+                    content_2: 'This is the content, this is the content, this is the content, this is the content.'
+                },
         }
     }
 }
 </script>
+<style>
+    .demo-extra-img{
+        margin-top: -100px;
+        text-align: center;
+        max-width: 500vw;
+    }
+    .demo-extra-img img{
+        width: 100%;
+        border-radius: 6px;
+    }
+    @media screen and (max-width: 768px) {
+        .demo-extra-img{
+            margin-top: 0;
+            width: 100%;
+        }
+        .demo-extra-img img{
+            width: 100%;
+        }
+    }
+</style>

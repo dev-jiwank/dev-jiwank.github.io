@@ -14,7 +14,7 @@
             <Image :style="{width: '100%'}" :src="this.verticalUrlList[1]"/>
         </CarouselItem>
         <CarouselItem>
-            <Image :style="{width: '100%'}" :src="this.verticalUrlList[2]"/>
+            <Image @click="this.fetchData()" :style="{width: '100%'}" :src="this.verticalUrlList[2]"/>
         </CarouselItem>
         <CarouselItem>
             <Image :style="{width: '100%'}" :src="this.verticalUrlList[3]"/>
@@ -35,11 +35,16 @@
           setting: {
               autoplay: true,
               autoplaySpeed: 2000,
-              dots: 'inside',
+              dots: 'outside',
               radiusDot: false,
-              trigger: 'click',
+              trigger: 'hover',
               arrow: 'hover'
           }
+        }
+      },
+      methods: {
+        fetchData(){
+          alert("jiwan")
         }
       }
     }

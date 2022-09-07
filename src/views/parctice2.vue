@@ -1,11 +1,14 @@
 <template>
-
+    <Typography>
+        <Title>TEST</Title>
+    </Typography>
+    
     <Grid :border="false" center square>
         <GridItem>
             <Card>
                 <div style="text-align:center">
                     <img src="https://dev-file.iviewui.com/stJXDnKhL5qEBD0dHSDDTKbdnptK6mV5/large">
-                    <h3>A high quality UI Toolkit based on Vue.js</h3>
+                    <h3>TEST</h3>
                 </div>
             </Card>
         </GridItem>
@@ -13,7 +16,7 @@
             <Card>
                 <div style="text-align:center">
                     <img src="https://dev-file.iviewui.com/stJXDnKhL5qEBD0dHSDDTKbdnptK6mV5/large">
-                    <h3>A high quality UI Toolkit based on Vue.js</h3>
+                    <h3>TEST</h3>
                 </div>
             </Card>
         </GridItem>
@@ -21,7 +24,7 @@
             <Card>
                 <div style="text-align:center">
                     <img src="https://dev-file.iviewui.com/stJXDnKhL5qEBD0dHSDDTKbdnptK6mV5/large">
-                    <h3>A high quality UI Toolkit based on Vue.js</h3>
+                    <h3>TEST</h3>
                 </div>
             </Card>
         </GridItem>
