@@ -1,9 +1,4 @@
 <template>
-<Button @click="anim1 = !anim1">히든처리</Button>
-<transition name="ease">
-    <div v-show="anim1" class="transition-box">
-
-
     <div style="text-align:center">
         <Typography v-if="true">
             <Title :level="2" class="title-left-padding">
@@ -17,7 +12,9 @@
         <GridItem :style="{width: '50%'}">
             <Card>
                 <div style="text-align:center">
-                    <Image :src="this.verticalUrlList[1]"/>
+                    <Tooltip content="HTML / CSS / JavaScript" placement="bottom">
+                        <Image :src="this.verticalUrlList[1]"/>
+                    </Tooltip>
                 </div>
             </Card>
         </GridItem>
@@ -28,7 +25,9 @@
         <GridItem>
             <Card>
                 <div style="text-align:center">
-                    <Image :src="this.verticalUrlList[0]" />
+                    <Tooltip content="Vue.js" placement="bottom">
+                        <Image :src="this.verticalUrlList[0]" />
+                    </Tooltip>
                 </div>
             </Card>
         </GridItem>
@@ -36,7 +35,9 @@
         <GridItem>
             <Card>
                 <div style="text-align:center">
-                    <Image :src="this.verticalUrlList[2]"/>
+                    <Tooltip content="C / C+ Programming" placement="bottom">
+                        <Image :src="this.verticalUrlList[2]"/>
+                    </Tooltip>
                 </div>
             </Card>
         </GridItem>
@@ -44,7 +45,9 @@
         <GridItem>
             <Card>
                 <div style="text-align:center">
-                    <Image :src="this.verticalUrlList[3]"/>
+                    <Tooltip content="Linux & Shell Script" placement="bottom">
+                        <Image :src="this.verticalUrlList[3]"/>
+                    </Tooltip>
                 </div>
             </Card>
         </GridItem>
@@ -52,7 +55,9 @@
         <GridItem>
             <Card>
                 <div style="text-align:center">
-                    <Image :src="this.verticalUrlList[4]"/>
+                    <Tooltip content="Bitbucket" placement="bottom">
+                        <Image :src="this.verticalUrlList[4]"/>
+                    </Tooltip>
                 </div>
             </Card>
         </GridItem>
@@ -60,7 +65,9 @@
         <GridItem>
             <Card>
                 <div style="text-align:center">
-                    <Image :src="this.verticalUrlList[5]"/>
+                    <Tooltip content="Jira" placement="bottom">
+                        <Image :src="this.verticalUrlList[5]"/>
+                    </Tooltip>
                 </div>
             </Card>
         </GridItem>
@@ -68,14 +75,14 @@
         <GridItem>
             <Card>
                 <div style="text-align:center">
-                    <Image :src="this.verticalUrlList[6]"/>
+                    <Tooltip content="Git" placement="bottom">
+                        <Image :src="this.verticalUrlList[6]"/>
+                    </Tooltip>
                 </div>
             </Card>
         </GridItem>
     </Grid>
 
-    </div>
-</transition>
 </template>
 <script>
 import Vue_img from '@/assets/Vue_180.png'
@@ -98,7 +105,6 @@ components: {
 },
     data() {
         return {
-            anim1: true,
             trg_scroll : false,
             title_skill : 'XXXXX XXXXX',
             verticalUrlList: [

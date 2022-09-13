@@ -1,6 +1,6 @@
 <template>
     <Grid :border="false" :col="3" padding='0' >
-        <GridItem style="text-align:center; width:33.3%;">
+        <GridItem style="text-align:right; width:33.3%;">
             <Space wrap>
                 <Circle :percent="100" :stroke-color="color[0]" style="width:100px">
                     <span v-if="this.end_num" style="font-size:24px; color:#19be6b;">
@@ -30,7 +30,7 @@
             </Space>
         </GridItem>
 
-        <GridItem style="text-align:center; width:33.3%;">
+        <GridItem style="text-align:left; width:33.3%;">
             <Space wrap>
                 <Circle :percent="100" :stroke-color="color[2]" style="width:100px">
                     <span v-if="this.end_num" style="font-size:24px; color:#ed4014;">

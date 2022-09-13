@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Main from '@/views/main.vue'
 import practice from '@/views/parctice.vue'
-import practice2 from '@/views/parctice2.vue'
 
 const routes = [
   {
@@ -19,11 +18,6 @@ const routes = [
     name: 'parctice',
     component: practice
   },
-  {
-    path: '/parctice2',
-    name: 'parctice2',
-    component: practice2
-  }
 ]
 
 const router = createRouter({

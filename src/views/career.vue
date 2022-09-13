@@ -6,6 +6,26 @@
             </Title>
         </Typography>
     </div>
+
+    <div style="margin-left:10px">
+        <Paragraph>
+            <ul>
+                <li>김지완입니다 반갑습니다</li>
+                <li>
+                </li>
+                <li>김지완 API 김지완</li>
+                <li>김지완 UI</li>
+                <li>김지완</li>
+                <li>김지완</li>
+            </ul>
+        </Paragraph>
+
+        <Typography>
+            <Title :level="3">제목이요</Title>
+            <blockquote>김지완</blockquote>
+        </Typography>
+    </div>
+
 </template>
 <script>
 export default {

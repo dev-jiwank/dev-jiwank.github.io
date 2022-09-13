@@ -3,37 +3,32 @@
         <Layout>
             <Header :style="{position: 'fixed', width: '100%', background: 'white'}">
                 <Menu mode="horizontal" theme="light" active-name="1" >
-                    <!-- <img class="layout-logo" alt="logo" src="../assets/logo_head.png"> -->
                     <div class="layout-nav">
                         <MenuItem to="home" name="1">
-                            <!-- <Icon type="md-home"></Icon> -->
                             Home
                         </MenuItem>
                         <MenuItem to="parctice" name="2">
                             About
                         </MenuItem>
-                        <MenuItem to="parctice2" name="3">
+                        <MenuItem  @click="value = true" name="3">
                             Contact
+
+                            <Drawer  placement="bottom" :closable="false" width="640" v-model="value">
+                                <p :style="pStyle">Contacts</p>
+                                <div class="demo-drawer-profile">
+                                    <Row>
+                                        <Col span="12">
+                                            Email: wldhks1004@naver.com
+                                        </Col>
+                                        <Col span="12">
+                                            Phone Number: 010-7754-8578
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </Drawer>
+
                         </MenuItem>
                     </div>
-
-
-                    <!-- <div class="layout-nav">
-                        <Dropdown>
-                            <a href="javascript:void(0)">
-                                <Icon type="md-list"></Icon>
-                            </a>
-                            <template #list>
-                                <DropdownMenu>
-                                    <DropdownItem>Home</DropdownItem>
-                                    <DropdownItem>About</DropdownItem>
-                                    <DropdownItem>Contact</DropdownItem>
-                                </DropdownMenu>
-                            </template>
-                        </Dropdown>
-                    </div> -->
-
-
                 </Menu>
             </Header>
             <Content class="content-layout">
@@ -45,6 +40,18 @@
 </template>
 <script>
 export default {
+    data () {
+        return {
+            value: false,
+            pStyle: {
+                fontSize: '16px',
+                color: 'rgba(0,0,0,0.85)',
+                lineHeight: '24px',
+                display: 'block',
+                marginBottom: '16px'
+            }
+        }
+    }
 }
 </script>
 
@@ -77,9 +84,15 @@ export default {
         text-align: center;
     }
     .content-layout{
-        margin: 70px 20px 0;
+        margin: 70px 10px 0;
         background: #fff;
         min-height: 650px;
     }
     .dev-run-preview .dev-run-preview-edit{ display: none }
+    .demo-drawer-profile{
+        font-size: 16px;
+    }
+    .demo-drawer-profile .ivu-col{
+        margin-bottom: 12px;
+    }
 </style>

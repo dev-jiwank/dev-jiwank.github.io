@@ -1,77 +1,38 @@
 <template>
-    <!-- <Row>
-        <Col span="12">
-            <PageHeader title="PageHeader"></PageHeader>
-        </Col>
-        <Col span="12">
-            <Image :src="this.Imagelist[0]"/>
-        </Col>
-    </Row> -->
+    <div style="text-align:center">
+        <Typography v-if="true">
+            <Title :level="2" class="title-left-padding">
+                {{ title_carrer }}
+            </Title>
+        </Typography>
+    </div>
 
-    <PageHeader>
-        <template #title>
-            <div class="demo-title">
-                <Title :level="1">
-                    JIWAN
-                </Title>
-            </div>
-        </template>
+    <div style="margin-left:10px">
+        <Paragraph>
+            <ul>
+                <li>김지완입니다 반갑습니다</li>
+                <li>
+                </li>
+                <li>김지완 API 김지완</li>
+                <li>김지완 UI</li>
+                <li>김지완</li>
+                <li>김지완</li>
+            </ul>
+        </Paragraph>
 
-        <template #extra>
-            <div class="demo-extra-img">
-                <Image :src="this.Imagelist[0]"/>
-            </div>
-        </template>
-
-        <template #content>
-            {{ this.data["content"] }}<br>
-            {{ this.data["content_2"]}}
-            <Space direction="vertical" type="flex">
-                <Button type="success" long>SUBMIT</Button>
-                <Button type="error" long>DELETE</Button>
-            </Space>
-        </template>
-    </PageHeader>
+        <Typography>
+            <Title :level="3">제목이요</Title>
+            <blockquote>김지완</blockquote>
+        </Typography>
+    </div>
 
 </template>
 <script>
-import Banner from '@/assets/Banner.png'
-
 export default {
-components: {
-    Banner
-},
-    data () {
+    data() {
         return {
-            Imagelist: [
-                Banner
-            ],
-            data: 
-                {
-                    content: 'This is the content, this is the content, this is the content, this is the content.',
-                    content_2: 'This is the content, this is the content, this is the content, this is the content.'
-                },
+            title_carrer : 'XXXXX',
         }
-    }
+    },
 }
 </script>
-<style>
-    .demo-extra-img{
-        margin-top: -100px;
-        text-align: center;
-        max-width: 500vw;
-    }
-    .demo-extra-img img{
-        width: 100%;
-        border-radius: 6px;
-    }
-    @media screen and (max-width: 768px) {
-        .demo-extra-img{
-            margin-top: 0;
-            width: 100%;
-        }
-        .demo-extra-img img{
-            width: 100%;
-        }
-    }
-</style>

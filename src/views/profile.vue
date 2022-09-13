@@ -1,5 +1,5 @@
 <template>
-<div style="text-align:center">
+<div style="text-align:center; padding-top: 200px;">
     <Typography>
         <Title :level="2" class="title-left-padding">
             {{ title_introduce }}
