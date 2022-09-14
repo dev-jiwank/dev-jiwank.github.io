@@ -1,5 +1,5 @@
 <template>
-<div style="text-align:center; padding-top: 200px;">
+<div style="text-align:center;">
     <Typography>
         <Title :level="2" class="title-left-padding">
             {{ title_introduce }}
@@ -7,10 +7,13 @@
         </Title>
     </Typography>
 
+    <Rate disabled allow-half v-model="valueHalf" />
+
     <List item-layout="vertical">
         <ListItem v-for="item in data" :key="item.title">
             <ListItemMeta :title="item.title" :description="item.description" />
             {{ item.content }}<br>
+            {{ item.content_1 }}<br>
             {{ item.content_2}}
             <!-- <template #action>
                 <li>
@@ -40,11 +43,12 @@ components: {
         return {
             data: [
                 {
-                    title: 'KIM JIWAN',
-                    description: 'Hello. XXXXX XXXXX XXXXX.',
+                    title: '김지완 (KIM JIWAN)',
+                    description: '무지를 아는 것이 곧 앎의 시작이다. - 소크라테스',
                     avatar: Profile,
-                    content: 'This is the content, this is the content, this is the content, this is the content.',
-                    content_2: 'This is the content, this is the content, this is the content, this is the content.'
+                    content: '생년월일 : 1996년 10월 4일',
+                    content_1: '거주지 : 경기도 성남시',
+                    content_2: '취미 : 낚시'
                 },
             ],
             list: [
@@ -54,6 +58,25 @@ components: {
                 }
             ],
             title_introduce : 'About Me',
+            valueHalf: 0
+        }
+    },
+    mounted() {
+        this.fetchData()
+    },
+	beforeDestroy () {
+		if (this.interval) {
+			clearInterval(this.interval)
+		}
+	},
+    methods: {
+        fetchData() {
+			this.interval = setInterval(() => {
+				this.valueHalf++
+				if (this.valueHalf === 5) {
+                    setTimeout(() => this.valueHalf = 0, 5000)
+				}
+			}, 500)
         }
     }
 }

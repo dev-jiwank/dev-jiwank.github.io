@@ -21,7 +21,7 @@
         <GridItem :style="{width: '25%'}"></GridItem>
     </Grid>
 
-    <Grid :border="false" padding=24>
+    <Grid :col="4" :border="false" padding=0>
         <GridItem>
             <Card>
                 <div style="text-align:center">
@@ -45,8 +45,18 @@
         <GridItem>
             <Card>
                 <div style="text-align:center">
-                    <Tooltip content="Linux & Shell Script" placement="bottom">
+                    <Tooltip content="Linux" placement="bottom">
                         <Image :src="this.verticalUrlList[3]"/>
+                    </Tooltip>
+                </div>
+            </Card>
+        </GridItem>
+
+        <GridItem>
+            <Card>
+                <div style="text-align:center">
+                    <Tooltip content="Shell Script (Bash)" placement="bottom">
+                        <Image :src="this.verticalUrlList[7]"/>
                     </Tooltip>
                 </div>
             </Card>
@@ -81,6 +91,16 @@
                 </div>
             </Card>
         </GridItem>
+
+        <GridItem>
+            <Card>
+                <div style="text-align:center">
+                    <Tooltip content="Jenkins" placement="bottom">
+                        <Image :src="this.verticalUrlList[8]"/>
+                    </Tooltip>
+                </div>
+            </Card>
+        </GridItem>
     </Grid>
 
 </template>
@@ -92,6 +112,9 @@ import Linux from '@/assets/Linux_180_2.png'
 import Bitbucket from '@/assets/Bitbucket_180.png'
 import Jira from '@/assets/Jira_180.png'
 import Git from '@/assets/Git_180.png'
+import Bash from '@/assets/Bash_180.png'
+import Jenkins from '@/assets/Jenkins_180.png'
+
 
 export default {
 components: {
@@ -101,12 +124,14 @@ components: {
     Linux,
     Bitbucket,
     Jira,
-    Git
+    Git,
+    Bash,
+    Jenkins
 },
     data() {
         return {
             trg_scroll : false,
-            title_skill : 'XXXXX XXXXX',
+            title_skill : 'Major Skill',
             verticalUrlList: [
                 Vue_img,
                 htmljscss,
@@ -114,7 +139,9 @@ components: {
                 Linux,
                 Bitbucket,
                 Jira,
-                Git
+                Git,
+                Bash,
+                Jenkins
             ]
         }
     },

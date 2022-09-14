@@ -5,11 +5,11 @@
                 <Circle :percent="100" :stroke-color="color[0]" style="width:100px">
                     <span v-if="this.end_num" style="font-size:24px; color:#19be6b;">
                         MAX
-                        <p>도도</p>
+                        <p>열정</p>
                     </span>
                     <span v-else style="font-size:24px">
                         <CountUp :end="100" :duration="5" ref="count" v-font="24" />%
-                        <p>도도</p>
+                        <p>열정</p>
                     </span>
                 </Circle>
             </Space>
@@ -20,11 +20,11 @@
                 <Circle :percent="100" :stroke-color="color[1]" style="width:100px">
                     <span v-if="this.end_num" style="font-size:24px; color:#ff9900;">
                         MAX
-                        <p>도도</p>
+                        <p>창의성</p>
                     </span>
                     <span v-else style="font-size:24px">
                         <CountUp :end="100" :duration="6" ref="count" v-font="24" />%
-                        <p>레레레</p>
+                        <p>창의성</p>
                     </span>
                 </Circle>
             </Space>
@@ -35,11 +35,11 @@
                 <Circle :percent="100" :stroke-color="color[2]" style="width:100px">
                     <span v-if="this.end_num" style="font-size:24px; color:#ed4014;">
                         MAX
-                        <p>도도</p>
+                        <p>개념</p>
                     </span>
                     <span v-else style="font-size:24px">
                         <CountUp :end="100" :duration="6" ref="count" v-font="24" />%
-                        <p>미미</p>
+                        <p>개념</p>
                     </span>
                 </Circle>
             </Space>

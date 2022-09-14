@@ -7,27 +7,34 @@
                         <MenuItem to="home" name="1">
                             Home
                         </MenuItem>
+
                         <MenuItem to="parctice" name="2">
                             About
                         </MenuItem>
+
                         <MenuItem  @click="value = true" name="3">
                             Contact
-
                             <Drawer  placement="bottom" :closable="false" width="640" v-model="value">
-                                <p :style="pStyle">Contacts</p>
+                                <Title :level="4">
+                                    Contacts
+                                </Title>
                                 <div class="demo-drawer-profile">
                                     <Row>
-                                        <Col span="12">
-                                            Email: wldhks1004@naver.com
+                                        <Col span="24">
+                                            E-mail: wldhks1004@naver.com
+                                            <Button shape="circle" icon="md-copy" @click="handleCopy"></Button>
                                         </Col>
-                                        <Col span="12">
+                                        <Col span="24">
                                             Phone Number: 010-7754-8578
+                                        </Col>
+                                        <Col span="24">
+                                            Kakao Talk ID: payphone22
                                         </Col>
                                     </Row>
                                 </div>
                             </Drawer>
-
                         </MenuItem>
+
                     </div>
                 </Menu>
             </Header>
@@ -50,6 +57,15 @@ export default {
                 display: 'block',
                 marginBottom: '16px'
             }
+        }
+    },
+    methods: {
+        handleCopy () {
+            this.$Copy({
+                text: "wldhks1004@naver.com",
+                successTip: "Success",
+                errorTip: "Fail"
+            })
         }
     }
 }

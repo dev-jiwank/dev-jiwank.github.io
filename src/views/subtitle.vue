@@ -1,12 +1,12 @@
 <template>
     <PageHeader>
-        <template #title>
-            <div class="demo-title">
-                <Title :level="1">
+        <!-- <template #title>
+            <div class="demo-title" >
+                <Title :level="1" >
                     XXX XXXXX
                 </Title>
             </div>
-        </template>
+        </template> -->
 
         <template #extra>
             <div class="demo-extra-img">
@@ -15,16 +15,16 @@
         </template>
 
         <template #content >
+            <Title :level="1" style="text-align:center;">
+                DEV. JiwanK
+            </Title>
             <Circle/>
             <div style="text-align:center;">
-            {{ this.data["content"] }}<br>
-            {{ this.data["content_2"]}}
+            {{ this.data["content"] }}
 
-            <a href="#section-1">
-                <Space direction="vertical" type="flex">
-                    <Button @click="updateParentValue" type="success"  style="width:50%; margin-top: 50px;">View Detail</Button>
-                </Space>
-            </a>
+            <Space direction="vertical" type="flex">
+                <Button @click="updateParentValue" type="success"  style="width:50%; margin-top: 50px;">자세히 보기</Button>
+            </Space>
 
             </div>
         </template>
@@ -47,8 +47,7 @@ export default {
             ],
             data: 
             {
-                content: 'This is the content, this is the content, this is the content, this is the content.',
-                content_2: 'This is the content, this is the content, this is the content, this is the content.'
+                content: '뜨거운 열정과 혁신적인 창의성을 추구하는 개념있는 개발자입니다.'
             },
         }
     },

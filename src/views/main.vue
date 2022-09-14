@@ -1,6 +1,6 @@
 <template>
     <div>
-      <section id="section-0">
+      <section  v-show="!this.parentVaule" id="section-0">
         <Subtitle  v-on:childEvent="updateParentValue" />
       </section>
 
