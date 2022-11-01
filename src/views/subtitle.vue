@@ -18,12 +18,20 @@
             <Title :level="1" style="text-align:center;">
                 DEV. JiwanK
             </Title>
-            <Circle/>
+            <Circle  v-on:childEvent_button="circle_done"/>
             <div style="text-align:center;">
             {{ this.data["content"] }}
 
             <Space direction="vertical" type="flex">
-                <Button @click="updateParentValue" type="success"  style="width:50%; margin-top: 50px;">자세히 보기</Button>
+                <div  v-show="!this.button_trigger">
+                    <Button type="primary" loading  style="width:50%; margin-top: 50px;">Loading...</Button>
+                </div>
+
+                <transition name="move-down">
+                    <div  v-show="this.button_trigger" class="transition-box">
+                        <Button @click="updateParentValue" type="success"  style="width:50%; margin-top: 50px;">자세히 보기</Button>
+                    </div>
+                </transition>
             </Space>
 
             </div>
@@ -47,20 +55,24 @@ export default {
             ],
             data: 
             {
-                content: '뜨거운 열정과 혁신적인 창의성을 추구하는 개념있는 개발자입니다.'
+                content: '뜨거운 열정과 혁신적인 창의성을 추구하는 느낌있는 개발자입니다.'
             },
+            button_trigger:false
         }
     },
     methods: {
         updateParentValue() {
             this.$emit("childEvent");
         },
+        circle_done() {
+            this.button_trigger = true
+        }
     }
 }
 </script>
 <style>
     .demo-extra-img{
-        margin-top: -100px;
+        margin-top: 0px;
         text-align: center;
         width: 500px;
     }

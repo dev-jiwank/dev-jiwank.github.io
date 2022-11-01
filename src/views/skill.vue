@@ -3,6 +3,7 @@
         <Typography v-if="true">
             <Title :level="2" class="title-left-padding">
                 {{ title_skill }}
+                <Icon type="ios-hammer"/>
             </Title>
         </Typography>
     </div>

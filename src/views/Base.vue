@@ -7,10 +7,10 @@
                         <MenuItem to="home" name="1">
                             Home
                         </MenuItem>
-
+<!-- 
                         <MenuItem to="parctice" name="2">
                             About
-                        </MenuItem>
+                        </MenuItem> -->
 
                         <MenuItem  @click="value = true" name="3">
                             Contact

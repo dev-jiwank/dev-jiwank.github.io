@@ -61,6 +61,7 @@ export default {
 
             if (this.end_num == true) {
                 color = ['#19be6b', '#ff9900','#ed4014'];
+                this.circle_done()
             }
             return color;
         }
@@ -81,6 +82,9 @@ export default {
         handleUpdate () {
             this.$refs.count.CountUp.update(this.update);
         },
+        circle_done () {
+            this.$emit("childEvent_button");
+        }
     }
 }
 </script>

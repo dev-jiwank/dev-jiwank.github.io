@@ -13,8 +13,9 @@
         <ListItem v-for="item in data" :key="item.title">
             <ListItemMeta :title="item.title" :description="item.description" />
             {{ item.content }}<br>
+            {{ item.content_0 }}<br>
             {{ item.content_1 }}<br>
-            {{ item.content_2}}
+            {{ item.content_2}}<br>
             <!-- <template #action>
                 <li>
                     <Icon type="ios-star-outline" /> 123
@@ -31,7 +32,7 @@
             </template> -->
         </ListItem>
     </List>
-    </div>
+</div>
 </template>
 <script>
 import Profile from '@/assets/Profile.png'
@@ -46,7 +47,8 @@ components: {
                     title: '김지완 (KIM JIWAN)',
                     description: '무지를 아는 것이 곧 앎의 시작이다. - 소크라테스',
                     avatar: Profile,
-                    content: '생년월일 : 1996년 10월 4일',
+                    content: '생년월일 : 1996년 10월 4일 (만 26세)',
+                    content_0: '성별 : 남자 (군필)',
                     content_1: '거주지 : 경기도 성남시',
                     content_2: '취미 : 낚시'
                 },
