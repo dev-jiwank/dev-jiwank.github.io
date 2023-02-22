@@ -25,9 +25,9 @@
 
         <Divider />
 
-        <!-- <section id="section-4">
-          <Intro/>
-        </section> -->
+        <section id="section-4">
+          <Solo/>
+        </section>
 
         </div>
     </transition>
@@ -35,6 +35,7 @@
     </div>    
 </template>
 <script>
+import Solo from '@/views/project.vue'
 import Intro from '@/views/intro.vue'
 import Profile from '@/views/profile.vue'
 import Skill from '@/views/skill.vue'
@@ -43,6 +44,7 @@ import Subtitle from '@/views/subtitle.vue'
 
 export default {
   components: {
+    Solo,
     Subtitle,
     Intro,
     Profile,

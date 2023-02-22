@@ -1,16 +1,12 @@
 <template>
     <div class="layout">
         <Layout>
-            <Header :style="{position: 'fixed', width: '100%', background: 'white'}">
+            <Header v-if="!header_hidden" :hidden='false' :style="{position: 'fixed', width: '100%', background: 'white'}">
                 <Menu mode="horizontal" theme="light" active-name="1" >
                     <div class="layout-nav">
                         <MenuItem to="home" name="1">
                             Home
                         </MenuItem>
-<!-- 
-                        <MenuItem to="parctice" name="2">
-                            About
-                        </MenuItem> -->
 
                         <MenuItem  @click="value = true" name="3">
                             Contact
@@ -38,6 +34,43 @@
                     </div>
                 </Menu>
             </Header>
+
+            <Header v-if="header_hidden" :hidden='false' :style="{position: 'fixed', width: '100%', background: 'white'}">
+                <!-- <Menu mode="horizontal" theme="light" active-name="1" >
+                    <div class="layout-nav">
+                        <MenuItem name="1">
+                            Menu
+                        </MenuItem>
+                        <MenuItem name="2">
+                            Login
+                        </MenuItem>
+
+                        <MenuItem  @click="value = true" name="3">
+                            Contact
+                            <Drawer  placement="bottom" :closable="false" width="640" v-model="value">
+                                <Title :level="4">
+                                    Contacts
+                                </Title>
+                                <div class="demo-drawer-profile">
+                                    <Row>
+                                        <Col span="24">
+                                            E-mail: wldhks1004@naver.com
+                                            <Button shape="circle" icon="md-copy" @click="handleCopy"></Button>
+                                        </Col>
+                                        <Col span="24">
+                                            Phone Number: 010-7754-8578
+                                        </Col>
+                                        <Col span="24">
+                                            Kakao Talk ID: payphone22
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </Drawer>
+                        </MenuItem>
+
+                    </div>
+                </Menu> -->
+            </Header>
             <Content class="content-layout">
                 <router-view></router-view>
             </Content>
@@ -56,7 +89,13 @@ export default {
                 lineHeight: '24px',
                 display: 'block',
                 marginBottom: '16px'
-            }
+            },
+            header_hidden: false
+        }
+    },
+    mounted () {
+        if(window.location.pathname !== '/home' && window.location.pathname !== '/project' && window.location.pathname !== '/') {
+            this.header_hidden = true
         }
     },
     methods: {

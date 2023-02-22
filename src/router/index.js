@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Main from '@/views/main.vue'
-import practice from '@/views/parctice.vue'
+import project from '@/views/project.vue'
+import lure from '@/views/lure/index.vue'
 
 const routes = [
   {
@@ -14,9 +15,14 @@ const routes = [
     component: Main
   },
   {
-    path: '/parctice',
-    name: 'parctice',
-    component: practice
+    path: '/project',
+    name: 'project',
+    component: project
+  },
+  {
+    path: '/lure',
+    name: 'lure',
+    component: lure
   },
 ]
 
