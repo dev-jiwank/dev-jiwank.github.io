@@ -1,0 +1,12 @@
+[
+    {
+        "name" : "우럭",
+        "weather" : ["1","2"],
+        "bait" : ["lure", "metal"]
+    },
+    {
+        "name" : "농어",
+        "weather" : ["6","7","8","9","10"],
+        "bait" : ["minou", "metal"]
+    }
+]
