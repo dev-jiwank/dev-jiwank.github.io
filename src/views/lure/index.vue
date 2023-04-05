@@ -1,15 +1,141 @@
 <template>
-    <div style="text-align:center">
-        <Typography v-if="true">
-            <Title :level="3" class="title-left-padding">
-                {{ title_current }}
-                <Icon type="ios-megaphone"/>
-            </Title>
-            <Title :level="5">-{{ current_time+" 기준"}}-</Title>
-        </Typography>
+    <div style=";background:#eee;">
+        <div style="text-align:center">
+            <Typography v-if="true">
+                <Title :level="3" class="title-left-padding">
+                    {{ title_current }}
+                    <Icon type="ios-megaphone"/>
+                </Title>
+                <Title :level="5">-{{ current_time+" 기준"}}-</Title>
+            </Typography>
+        </div>
+        <Row style="background:#eee;padding:20px">
+            <Table border :columns="columns" :data="fish_table"></Table>
+        </Row>
+
+        <el-row :gutter="12" style="padding:20px;">
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+                <el-card class="box-card" shadow="hover" style="margin-bottom:10px;">
+                    <template #header>
+                    <div class="card-header">
+                        <span>Card name</span>
+                        <el-button class="button" text>Operation button</el-button>
+                    </div>
+                    </template>
+                    <div>
+                        <Select v-model="model" style="width:200px;" placeholder="SELECT">
+                            <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                        </Select>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+                <el-card class="box-card" shadow="hover" style="margin-bottom:10px;">
+                    <template #header>
+                    <div class="card-header">
+                        <span>Card name</span>
+                        <el-button class="button" text>Operation button</el-button>
+                    </div>
+                    </template>
+                    <div>
+                        <el-button class="button" text>Operation button</el-button>
+                    </div>
+                </el-card>
+            </el-col>
+
+            <el-col :xs="24" :sm="8" :md="8" :lg="8" :xl="8">
+                <el-card class="box-card" shadow="hover" style="margin-bottom:10px;">
+                    <template #header>
+                    <div class="card-header">
+                        <span>Card name</span>
+                        <el-button class="button" text>Operation button</el-button>
+                    </div>
+                    </template>
+                    <div>
+                        <!-- <iframe src="https://www.nifs.go.kr/risa/main.risa" frameborder="0" scrolling="no" width="auto" height="525"></iframe> -->
+                    </div>
+                </el-card>
+            </el-col>
+        </el-row>
+
+    <!-- <div style="background:#eee;text-align:center;padding:20px;"> -->
+    <!-- <div style="background:#eee;text-align:center;">    
+        <el-space wrap>
+            <el-card class="box-card">
+                <template #header>
+                <div class="card-header">
+                    <span>Card name</span>
+                    <el-button class="button" text>Operation button</el-button>
+                </div>
+                </template>
+                <div>
+                    <Select v-model="model" style="width:200px;" placeholder="SELECT">
+                        <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                    </Select>
+                </div>
+            </el-card>
+
+            <el-card class="box-card">
+                <template #header>
+                <div class="card-header">
+                    <span>Card name</span>
+                    <el-button class="button" text>Operation button</el-button>
+                </div>
+                </template>
+                <div>
+                    <el-button class="button" text>Operation button</el-button>
+                </div>
+            </el-card>
+
+            <el-card class="box-card">
+                <template #header>
+                <div class="card-header">
+                    <span>Card name</span>
+                    <el-button class="button" text>Operation button</el-button>
+                </div>
+                </template>
+                <div>
+                    <iframe src="https://www.nifs.go.kr/risa/main.risa" frameborder="0" scrolling="no" width="auto" height="525"></iframe>
+                </div>
+            </el-card>
+        </el-space>
     </div>
 
-    <Table border :columns="columns" :data="fish_table"></Table>
+        <Row style="background:#eee;padding:20px">
+            <Col span="7">
+                <Card :bordered="false">
+                    <template #title>KOANNNNNNNNN</template>
+                    <Space direction="vertical" type="flex">
+                        <Button type="default" long>https://www.nifs.go.kr/risa/main.risa</Button>
+                    </Space>
+                </Card>
+            </Col>
+
+            <Col span="8" offset="1">
+                <Card shadow>
+                    <template #title>KAON</template>
+                    <Select v-model="model" style="width:200px;" placeholder="SELECT">
+                        <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                    </Select>
+                </Card>
+            </Col>
+
+            <Col span="7" offset="1">
+                <Card shadow>
+                    <template #title>KAON</template>
+                    <p>Content of card</p>
+                    <p>Content of card</p>
+                    <p>Content of card</p>
+                </Card>
+            </Col>
+        </Row>
+
+
+        <Row style="background:#eee;padding:20px">
+            <iframe src="https://www.nifs.go.kr/risa/main.risa" frameborder="0" scrolling="no" width="400" height="525"></iframe>
+        </Row> -->
+    </div>
 </template>
 <script>
     export default {
@@ -25,116 +151,58 @@
                         key: 'name'
                     },
                     {
-                        title: 'Age',
+                        title: 'Location',
                         key: 'suggest'
                     },
                     {
-                        title: 'Address',
+                        title: 'KAONKAON',
                         key: 'address'
-                    }
-                ],
-                data: [
-                    {
-                        name: 'John Brown',
-                        suggest: 18,
-                        address: 'New York No. 1 Lake Park',
-                    },
-                    {
-                        name: 'Jim Green',
-                        suggest: 24,
-                        address: 'London No. 1 Lake Park',
-                    },
-                    {
-                        name: 'Joe Black',
-                        suggest: 30,
-                        address: 'Sydney No. 1 Lake Park',
-                    },
-                    {
-                        name: 'Jon Snow',
-                        suggest: 26,
-                        address: 'Ottawa No. 2 Lake Park',
                     }
                 ],
                 fish_table: [],
                 fish_data: [
                     {
-                        name: 'ulcuk',
+                        name: 'KAON',
                         time_west_nt: ['1','2','3'],
                         time_west_st: ['1','2','3'],
                         time_east: ['4','5','6'],
                         time_south: ['7','8','9']
                     },
                     {
-                        name: 'nong a',
+                        name: 'KAON',
                         time_west_nt: ['1','2','3'],
                         time_west_st: ['1','2','3'],
                         time_east: ['4','5','6'],
                         time_south: ['7','8','9']
+                    }
+                ],
+                cityList: [
+                    {
+                        value: 'New York',
+                        label: 'New York'
                     },
                     {
-                        name: 'go dung',
-                        time_west_nt: ['1','2','3'],
-                        time_west_st: ['1','2','3'],
-                        time_east: ['4','5','6'],
-                        time_south: ['7','8','9']
+                        value: 'London',
+                        label: 'London'
                     },
                     {
-                        name: 'pul chi',
-                        time_west_nt: ['1','2','3'],
-                        time_west_st: ['1','2','3'],
-                        time_east: ['4','5','6'],
-                        time_south: ['7','8','9']
+                        value: 'Sydney',
+                        label: 'Sydney'
                     },
                     {
-                        name: 'guang a',
-                        time_west_nt: ['1','2','3'],
-                        time_west_st: ['1','2','3'],
-                        time_east: ['4','5','6'],
-                        time_south: ['7','8','9']
+                        value: 'Ottawa',
+                        label: 'Ottawa'
                     },
                     {
-                        name: 'cham dom',
-                        time_west_nt: ['1','2','3'],
-                        time_west_st: ['1','2','3'],
-                        time_east: ['4','5','6'],
-                        time_south: ['7','8','9']
+                        value: 'Paris',
+                        label: 'Paris'
                     },
                     {
-                        name: 'jun gang e',
-                        time_west_nt: ['1','2','3'],
-                        time_west_st: ['1','2','3'],
-                        time_east: ['4','5','6'],
-                        time_south: ['7','8','9']
-                    },
-                    {
-                        name: 'boll rack',
-                        time_west_nt: ['1','2','3'],
-                        time_west_st: ['1','2','3'],
-                        time_east: ['4','5','6'],
-                        time_south: ['7','8','9']
-                    },
-                    {
-                        name: 'sam chi',
-                        time_west_nt: ['1','2','3'],
-                        time_west_st: ['1','2','3'],
-                        time_east: ['4','5','6'],
-                        time_south: ['7','8','9']
-                    },
-                    {
-                        name: 'ozing a',
-                        time_west_nt: ['1','2','3'],
-                        time_west_st: ['1','2','3'],
-                        time_east: ['4','5','6'],
-                        time_south: ['7','8','9']
-                    },
-                    {
-                        name: 'jang dea',
-                        time_west_nt: ['1','2','3'],
-                        time_west_st: ['1','2','3'],
-                        time_east: ['4','5','6'],
-                        time_south: ['7','8','9']
-                    },
-                ]
+                        value: 'Canberra',
+                        label: 'Canberra'
+                    }
+                ],
+                model: ''
             }
         },
         mounted() {
@@ -144,10 +212,6 @@
             fetchData(){
                 this.getTime()
                 this.getSuggest()
-
-                // console.log(this.fish_table)
-                // // console.log( this.fish_data.filter(item => item.time_west) )
-                // console.log('------------------------------------');
             },
             getTime(){
                 let today = new Date()
@@ -164,12 +228,32 @@
                     let request = {name:'', suggest: '', address: ''}
 
                     request.name = this.fish_data[key].name
-                    request.suggest = '하'
-                    request.address = 'north'
+                    request.suggest = 'KAON'
+                    request.address = 'KAON'
 
                     this.fish_table.push(request)
                 }
-            }
+            },
+            open_play_page() {
+                window.open("https://www.play.pl/")
+            },
         } 
     }
 </script>
+
+<style>
+/* .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+
+/* .item {
+  margin-bottom: 18px;
+} */
+
+/* .box-card {
+  width: 200px;
+} */
+</style>
