@@ -7,7 +7,7 @@
                         <MenuItem to="home" name="1">
                             Home
                         </MenuItem>
-
+<!-- 
                         <MenuItem  @click="value = true" name="3">
                             Contact
                             <Drawer  placement="bottom" :closable="false" width="640" v-model="value">
@@ -29,7 +29,7 @@
                                     </Row>
                                 </div>
                             </Drawer>
-                        </MenuItem>
+                        </MenuItem> -->
 
                     </div>
                 </Menu>
@@ -74,7 +74,7 @@
             <Content class="content-layout">
                 <router-view></router-view>
             </Content>
-            <Footer class="layout-footer-center">1996 &copy; Jiwan Kim </Footer>
+            <Footer class="layout-footer-center">TEL : 010-7754-8578 &copy; Jiwan Kim </Footer>
         </Layout>
     </div>
 </template>

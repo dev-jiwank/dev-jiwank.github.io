@@ -1,11 +1,11 @@
 <template>
     <div>
-      <section  v-show="!this.parentVaule" id="section-0">
+      <section  v-show="false" id="section-0">
         <Subtitle  v-on:childEvent="updateParentValue" />
       </section>
 
     <transition name="ease">
-        <div v-show="this.parentVaule" class="transition-box">
+        <div v-show="true" class="transition-box">
 
         <section id="section-1">
           <Profile/>
@@ -24,10 +24,10 @@
         </section>
 
         <Divider />
-
+<!-- 
         <section id="section-4">
           <Solo/>
-        </section>
+        </section> -->
 
         </div>
     </transition>

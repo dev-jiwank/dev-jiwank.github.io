@@ -1,5 +1,5 @@
 <template>
-  <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean" rel="stylesheet">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean" rel="stylesheet"> -->
   <SidebarMenu/>
 </template>
 
@@ -27,8 +27,15 @@ export default {
     font-weight: normal;
     font-style: normal; 
   } */
+  @font-face {
+      font-family: 'manrope';
+      src: url(assets/Manrope-VariableFont_wght.ttf) format('woff');
+      font-weight: bold;
+  }
+
   #app {
     /* height : 100%; */
-    font-family: 'Black Han Sans', sans-serif;
+    font-family: 'manrope';
+    font-weight: bold;
   }
 </style>

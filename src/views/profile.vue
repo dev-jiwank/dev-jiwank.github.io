@@ -1,7 +1,7 @@
 <template>
-<div style="text-align:center;">
+<div style="text-align:center; margin-top:20px;">
     <Typography>
-        <Title :level="2" class="title-left-padding">
+        <Title :level="1" class="title-left-padding">
             {{ title_introduce }}
             <AvatarList :list="list" />
         </Title>
@@ -45,12 +45,12 @@ components: {
             data: [
                 {
                     title: '김지완 (KIM JIWAN)',
-                    description: '무지를 아는 것이 곧 앎의 시작이다. - 소크라테스',
+                    description: '가장 훌륭한 지혜는 친절함과 겸손함이다.',
                     avatar: Profile,
                     content: '생년월일 : 1996년 10월 4일 (만 26세)',
                     content_0: '성별 : 남자 (군필)',
                     content_1: '거주지 : 경기도 성남시',
-                    content_2: '취미 : 낚시'
+                    content_2: '취미 : 자전거, 낚시'
                 },
             ],
             list: [

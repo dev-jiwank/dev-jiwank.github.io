@@ -1,7 +1,7 @@
 <template>
     <div style="text-align:center">
         <Typography v-if="true">
-            <Title :level="2" class="title-left-padding">
+            <Title :level="1" class="title-left-padding">
                 {{ title_skill }}
                 <Icon type="ios-hammer"/>
             </Title>
