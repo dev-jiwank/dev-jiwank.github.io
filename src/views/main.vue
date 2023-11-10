@@ -24,6 +24,12 @@
         </section>
 
         <Divider />
+
+        <section id="section-3">
+          <Contact/>
+        </section>
+
+        <Divider />
 <!-- 
         <section id="section-4">
           <Solo/>
@@ -41,6 +47,7 @@ import Profile from '@/views/profile.vue'
 import Skill from '@/views/skill.vue'
 import Career from '@/views/career.vue'
 import Subtitle from '@/views/subtitle.vue'
+import Contact from '@/views/contact.vue'
 
 export default {
   components: {
@@ -49,7 +56,8 @@ export default {
     Intro,
     Profile,
     Skill,
-    Career
+    Career,
+    Contact
   },
   data() {
     return {
