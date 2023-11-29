@@ -2,9 +2,9 @@
     <div class="layout">
         <Layout>
             <Header v-if="!header_hidden" :hidden='false' :style="{position: 'fixed', width: '100%', background: 'white'}">
-                <Menu mode="horizontal" theme="light" active-name="1" >
+                <Menu mode="horizontal" theme="light" :active-name="active_num" >
                     <div class="layout-nav">
-                        <MenuItem to="home" name="1">
+                        <MenuItem name="1" @click="goTohome">
                             Home
                         </MenuItem>
 <!-- 
@@ -30,6 +30,16 @@
                                 </div>
                             </Drawer>
                         </MenuItem> -->
+
+                        <Submenu name="3">
+                            <template #title>
+                                <Icon type="ios-stats" />
+                                Project
+                            </template>
+                            <MenuGroup>
+                                <MenuItem name="3" @click="goToFearAndGreedPage">{{ "Fear & Greed"}}</MenuItem>
+                            </MenuGroup>
+                        </Submenu>
 
                     </div>
                 </Menu>
@@ -90,13 +100,16 @@ export default {
                 display: 'block',
                 marginBottom: '16px'
             },
-            header_hidden: false
+            header_hidden: false,
+            active_num : '3'
         }
     },
     mounted () {
-        if(window.location.pathname !== '/home' && window.location.pathname !== '/project' && window.location.pathname !== '/') {
-            this.header_hidden = true
-        }
+        // if(window.location.pathname !== '/home' && window.location.pathname !== '/project' && window.location.pathname !== '/') {
+        //     this.header_hidden = true
+        // }
+        if(window.location.pathname == '/home') this.active_num = '1'
+        else this.active_num = '3'
     },
     methods: {
         handleCopy () {
@@ -105,6 +118,12 @@ export default {
                 successTip: "Success",
                 errorTip: "Fail"
             })
+        },
+        goTohome(){
+            this.$router.push('/home');  
+        },
+        goToFearAndGreedPage() {
+            this.$router.push('/project/fear-and-greed');
         }
     }
 }

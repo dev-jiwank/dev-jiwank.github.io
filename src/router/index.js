@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Main from '@/views/main.vue'
 import project from '@/views/project.vue'
 import lure from '@/views/lure/index.vue'
+import feargreed from '@/views/feargreed.vue'
 
 const routes = [
   {
@@ -23,6 +24,11 @@ const routes = [
     path: '/lure',
     name: 'lure',
     component: lure
+  },
+  {
+    path: '/project/fear-and-greed',
+    name: 'fear-and-greed',
+    component: feargreed
   },
 ]
 
