@@ -34,7 +34,7 @@
             </div>
         </Circle>
 
-        <div style="margin-top:20px;">
+        <div style="margin-top:20px;" class="mobile-hide">
           <el-row :gutter="12">
             <el-col :span="this.findBox.card_1 ? 8 : 4">
                 <el-card :shadow="this.findBox.card_1 ? 'always' : 'hover'" :style="this.findBox.card_1 ? 'height: 100%;' : 'color: rgba(150, 150, 150, 0.7); height: 100%;'">
@@ -138,10 +138,11 @@
   </div>
 </template>
 <script>
-// import Profile from '@/assets/Profile.png'
+import data from '@/shared/coindata.json'
 
 export default {
 components: {
+  data 
 },
     data() {
         return {
@@ -170,12 +171,26 @@ components: {
     },
     mounted() {
       //this.getBitcoinRSI()
-      this.get_upbit_ubci()
+      this.tmp_get_upbit_ubci()
     },
     beforeDestroy () {
 
     },
     methods: {
+      async tmp_get_upbit_ubci(){
+            this.api_value = data
+
+            /* MAKE */
+            let api_time_split = this.api_value.at.split('T')
+            this.pageForm.fields.CURRENT_DATE = api_time_split[0]
+            this.pageForm.fields.CURRENT_TIME = api_time_split[1].split(':')[0]+":"+api_time_split[1].split(':')[1]
+            this.pageForm.fields.CURRENT_ALL_FG_POINT = this.api_value.today.score.toFixed(1)
+            this.pageForm.fields.CURRENT_ALL_COMMENT = this.api_value.today.comment
+            this.pageForm.fields.CURRENT_ALL_STATUS = this.api_value.today.stage
+
+            this.findDescriptionBox(Math.floor(this.pageForm.fields.CURRENT_ALL_FG_POINT))
+            this.factoringHistoryTable(this.api_value.intv)
+      },
       async get_upbit_ubci() {
         const axios = require('axios');
         axios.get('https://ubci-api.ubcindex.com/v1/crix/feargreed').then(response => {
@@ -351,5 +366,11 @@ components: {
 .demo-Circle-custom span i{
     font-style: normal;
         color: #3f414d;
+}
+
+@media (max-width: 767px) {
+  .mobile-hide {
+    display: none;
+  }
 }
 </style>
