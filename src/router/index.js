@@ -6,14 +6,9 @@ import feargreed from '@/views/feargreed.vue'
 
 const routes = [
   {
-    path: '',
-    name: '',
-    component: Main
-  },
-  {
-    path: '/home',
+    path: '/',
     name: 'home',
-    component: Main
+    component: Main,
   },
   {
     path: '/project',

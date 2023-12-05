@@ -1,12 +1,25 @@
 <template>
     <div class="layout">
         <Layout>
-            <Header v-if="!header_hidden" :hidden='false' :style="{position: 'fixed', width: '100%', background: 'white'}">
-                <Menu mode="horizontal" theme="light" :active-name="active_num" >
+            <Header v-if="!header_hidden" :hidden="false" :style="{position: 'fixed', width: '100%', background: 'white'}">
+                <Menu mode="horizontal" theme="light" :active-name="this.$route.name">
                     <div class="layout-nav">
-                        <MenuItem name="1" @click="goTohome">
-                            Home
-                        </MenuItem>
+                    <MenuItem name="home" @click="router_go_to_name('home')">
+                        Home
+                    </MenuItem>
+                    <Submenu name="fear-and-greed">
+                        <template #title>
+                        <Icon type="ios-stats" />
+                        Project
+                        </template>
+                        <MenuGroup>
+                        <MenuItem name="fear-and-greed" @click="router_go_to_name('fear-and-greed')">{{ "Fear & Greed"}}</MenuItem>
+                        </MenuGroup>
+                    </Submenu>
+                    </div>
+                </Menu>
+            </Header>
+            <Header v-if="header_hidden" :hidden='false' :style="{position: 'fixed', width: '100%', background: 'white'}">
 <!-- 
                         <MenuItem  @click="value = true" name="3">
                             Contact
@@ -31,21 +44,6 @@
                             </Drawer>
                         </MenuItem> -->
 
-                        <Submenu name="3">
-                            <template #title>
-                                <Icon type="ios-stats" />
-                                Project
-                            </template>
-                            <MenuGroup>
-                                <MenuItem name="3" @click="goToFearAndGreedPage">{{ "Fear & Greed"}}</MenuItem>
-                            </MenuGroup>
-                        </Submenu>
-
-                    </div>
-                </Menu>
-            </Header>
-
-            <Header v-if="header_hidden" :hidden='false' :style="{position: 'fixed', width: '100%', background: 'white'}">
                 <!-- <Menu mode="horizontal" theme="light" active-name="1" >
                     <div class="layout-nav">
                         <MenuItem name="1">
@@ -100,16 +98,11 @@ export default {
                 display: 'block',
                 marginBottom: '16px'
             },
-            header_hidden: false,
-            active_num : '3'
+            header_hidden: false
         }
     },
     mounted () {
-        // if(window.location.pathname !== '/home' && window.location.pathname !== '/project' && window.location.pathname !== '/') {
-        //     this.header_hidden = true
-        // }
-        if(window.location.pathname == '/home') this.active_num = '1'
-        else this.active_num = '3'
+        // console.log("현재 페이지의 name:", this.$route.name);
     },
     methods: {
         handleCopy () {
@@ -119,11 +112,8 @@ export default {
                 errorTip: "Fail"
             })
         },
-        goTohome(){
-            this.$router.push('/home');  
-        },
-        goToFearAndGreedPage() {
-            this.$router.push('/project/fear-and-greed');
+        router_go_to_name(name){
+            this.$router.push({ name: name });
         }
     }
 }
