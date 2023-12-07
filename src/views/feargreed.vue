@@ -11,7 +11,7 @@
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
-        <span>{{ "Cryptocurrency Fear & Greed index" }}</span>
+        <span>{{ "Cryptocurrency Fear & Greed index"+ " / (현재 API 권한 문제로 임시 data 값 사용 중)"}}</span>
       </div>
     </template>
     <div style="text-align:center;">
@@ -136,13 +136,22 @@
       </el-table-column>
     </el-table>
   </div>
+
+  <div style="text-align:center; margin:25px;">
+    <el-collapse>
+      <el-collapse-item title="Current json Data" name="1">
+        <div>{{this.json_data}}</div>
+      </el-collapse-item>
+    </el-collapse>
+  </div>
+
 </template>
 <script>
-import data from '@/shared/coindata.json'
+import datas from '@/shared/coindata.json'
 
 export default {
 components: {
-  data 
+  datas
 },
     data() {
         return {
@@ -166,7 +175,8 @@ components: {
               card_4 : false, 
               card_5 : false
             },
-            FG_tableData : []
+            FG_tableData : [],
+            json_data : datas
         }
     },
     mounted() {
@@ -178,7 +188,7 @@ components: {
     },
     methods: {
       async tmp_get_upbit_ubci(){
-            this.api_value = data
+            this.api_value = this.json_data
 
             /* MAKE */
             let api_time_split = this.api_value.at.split('T')
