@@ -103,7 +103,7 @@
   </el-card>
 
 
-  <div style="text-align:center; margin:50px;">
+  <div style="text-align:center; margin:25px;">
     <el-table
       :data="FG_tableData">
       <el-table-column

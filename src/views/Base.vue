@@ -9,12 +9,11 @@
                     </MenuItem>
                     <Submenu name="fear-and-greed">
                         <template #title>
-                        <Icon type="ios-stats" />
+                        <!-- <Icon type="ios-stats" /> -->
                         Project
                         </template>
-                        <MenuGroup>
-                        <MenuItem name="fear-and-greed" @click="router_go_to_name('fear-and-greed')">{{ "Fear & Greed"}}</MenuItem>
-                        </MenuGroup>
+                            <MenuItem name="fear-and-greed" @click="router_go_to_name('fear-and-greed')">{{ "Fear & Greed"}}</MenuItem>
+                            <MenuItem name="soccer" @click="router_go_to_name('soccer')">{{ "EPL (Premier League)"}}</MenuItem>
                     </Submenu>
                     </div>
                 </Menu>
