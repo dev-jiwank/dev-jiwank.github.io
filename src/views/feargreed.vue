@@ -11,7 +11,7 @@
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
-        <span>{{ "Cryptocurrency Fear & Greed index"+ " / (현재 API 권한 문제로 임시 data 값 사용 중)"}}</span>
+        <span>{{ "Cryptocurrency Fear & Greed index"}}</span>
       </div>
     </template>
     <div style="text-align:center;">
@@ -181,7 +181,7 @@ components: {
     },
     mounted() {
       //this.getBitcoinRSI()
-      this.tmp_get_upbit_ubci()
+      this.get_upbit_ubci()
     },
     beforeDestroy () {
 
@@ -203,7 +203,7 @@ components: {
       },
       async get_upbit_ubci() {
         const axios = require('axios');
-        axios.get('https://ubci-api.ubcindex.com/v1/crix/feargreed').then(response => {
+        axios.get('https://cors-anywhere.herokuapp.com/https://ubci-api.ubcindex.com/v1/crix/feargreed').then(response => {
             this.api_value = response.data;
 
             /* MAKE */
