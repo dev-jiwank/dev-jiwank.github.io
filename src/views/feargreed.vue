@@ -11,7 +11,7 @@
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
-        <span>{{ "Cryptocurrency Fear & Greed index"}}</span>
+        <span>{{ "Cryptocurrency Fear & Greed index"+ " / (현재 API 권한 문제로 임시 data 값 사용 중)"}}</span>
       </div>
     </template>
     <div style="text-align:center;">
@@ -181,7 +181,7 @@ components: {
     },
     mounted() {
       //this.getBitcoinRSI()
-      this.get_upbit_ubci()
+      this.tmp_get_upbit_ubci()
     },
     beforeDestroy () {
 
