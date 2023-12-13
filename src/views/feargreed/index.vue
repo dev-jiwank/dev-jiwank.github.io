@@ -8,6 +8,7 @@
     </Typography>
 </div> -->
 
+<div>
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
@@ -144,7 +145,7 @@
       </el-collapse-item>
     </el-collapse>
   </div>
-
+</div>
 </template>
 <script>
 import datas from '@/shared/coindata.json'

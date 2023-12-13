@@ -8,9 +8,9 @@
         </Typography>
     </div> -->
 
-<el-card class="box-card">
+<el-card class="box-card-pjc">
     <div style="margin-top:20px;">
-        <el-row :gutter="12" class="responsive-row">
+        <el-row :gutter="12" class="responsive-row-pjc">
             <el-col :span="12"  @click="router_go_to_name('fear-and-greed')">
                 <el-card :shadow="'hover'">
                     <template #header>
@@ -19,7 +19,7 @@
                         </div>
                     </template>
                     <div style="text-align:center;">
-                        {{""}}
+                        {{"IMAGE WILL BE HERE"}}
                     </div>
                 </el-card>
             </el-col>
@@ -31,7 +31,7 @@
                         </div>
                     </template>
                     <div style="text-align:center;">
-                        {{""}}
+                        {{"IMAGE WILL BE HERE"}}
                     </div>
                 </el-card>
             </el-col>
@@ -68,19 +68,19 @@
 </script>
 
 <style scoped>
-    .box-card {
+    .box-card-pjc {
         margin: 50px;
         width: auto;
     }
     @media screen and (max-width: 600px) {
-        .box-card {
+        .box-card-pjc {
             margin: 10px;
             width: auto;
         }
         .el-row .el-col {
             margin-bottom: 10px;
         }
-        .responsive-row {
+        .responsive-row-pjc {
         flex-direction: column;
         }
         .el-col-8 {

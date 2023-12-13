@@ -7,14 +7,34 @@
     </Typography>
 </div> -->
     <el-row :gutter="5">
-      <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="6">
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="6">
         <el-card class="box-card-score">
+          <template #header>
+            <div>
+              <span>{{ "순위 (Standings)"}}</span>
+            </div>
+          </template>
           <standing></standing>
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="24" :lg="12" :xl="18">
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="9">
         <el-card class="box-card-match">
-          <match></match>
+          <template #header>
+            <div>
+              <span>{{ "경기 일정"}}</span>
+            </div>
+          </template>
+          <match :someProp="'match'"></match>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="9">
+        <el-card class="box-card-match">
+          <template #header>
+            <div>
+              <span>{{ "종료 일정"}}</span>
+            </div>
+          </template>
+          <match :someProp="'match-end'"></match>
         </el-card>
       </el-col>
     </el-row>
@@ -43,6 +63,9 @@ components: {
     .box-card-score {
         margin: 0;
         width: auto; /* or any other value suitable for mobile screens */
+    }
+    .el-row .el-col {
+        margin-bottom: 10px;
     }
   }
 

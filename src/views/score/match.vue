@@ -1,13 +1,9 @@
 <template>
     <div>
-      <el-table
+      <el-table v-if="someProp=='match'"
         align="center"
         :data="timedtableData"
         style="width: 100%;">
-        <!-- <el-table-column
-          type="index"
-          width="50">
-        </el-table-column> -->
         <el-table-column
           property="utcDate"
           label="날짜">
@@ -22,6 +18,33 @@
         </el-table-column>
       </el-table>
 
+      <el-table v-else-if="someProp=='match-end'"
+        align="center"
+        :data="endtableData"
+        style="width: 100%;">
+        <el-table-column
+          property="utcDate"
+          label="날짜"
+          width="200">
+        </el-table-column>
+        <el-table-column
+          property="homeTeam.name"
+          label="홈팀"
+          width="200">
+        </el-table-column>
+
+        <el-table-column
+          property="fullscore"
+          label=""
+          width="50">
+        </el-table-column>
+
+        <el-table-column
+          property="awayTeam.name"
+          label="어웨이팀"
+          width="200">
+        </el-table-column>
+      </el-table>
       <!-- <div style="text-align:center; margin:25px;">
         <el-collapse>
           <el-collapse-item title="json Data" name="1">
@@ -36,6 +59,12 @@
 import matchdatas from '@/shared/matchdata.json'
 
 export default {
+props: {
+  someProp: {
+    type: String,
+    default: ""
+  }
+},
 components: {
   matchdatas
 },
@@ -44,13 +73,14 @@ components: {
           // currentRow: null,
           json_data : matchdatas,
           standingtableData : [],
-          timedtableData : []
+          timedtableData : [],
+          endtableData : []
         }
     },
     mounted() {
-      //this.get_api_match()
+      this.get_api_match()
 
-      this.localtest()
+      //this.localtest()
     },
     methods: {
       async get_api_match() {
@@ -60,7 +90,20 @@ components: {
                 'ngrok-skip-browser-warning': '69420'
             }
         }).then(response => {
-          console.log(response.data[0].matches)
+            this.standingtableData = response.data[0].matches
+
+            this.standingtableData.forEach(element => {
+              if(element.status=='FINISHED') {
+                element.fullscore = element.score.fullTime.home+":"+element.score.fullTime.away
+                this.endtableData.push(element)
+              }
+              else if(element.status=='SCHEDULED') {
+
+              }
+              else if(element.status=='TIMED') {
+                this.timedtableData.push(element)
+              }
+            });
           })
           .catch(error => {
             console.error('Error:', error.message);
@@ -72,18 +115,35 @@ components: {
 
         this.standingtableData.forEach(element => {
           if(element.status=='FINISHED') {
-            
+            element.fullscore = element.score.fullTime.home+":"+element.score.fullTime.away
+            this.endtableData.push(element)
           }
           else if(element.status=='SCHEDULED') {
 
           }
           else if(element.status=='TIMED') {
             this.timedtableData.push(element)
-            // console.log(this.timedtableData)
           }
 
         });
       },
+
+      async utctokoreatime(time) {
+        let utcDate = new Date(time);
+
+        let krwDate = new Intl.DateTimeFormat('ko-KR', {
+          timeZone: 'Asia/Seoul',
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: 'numeric',
+          second: 'numeric',
+        }).format(utcDate);
+
+        return krwDate;
+      }
+
 
       // tableRowClassName({row, rowIndex}) {
       //   if (rowIndex<4) {

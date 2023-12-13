@@ -151,7 +151,7 @@ components: {
         let scrollLocation = document.documentElement.scrollTop; // 현재 스크롤바 위치
         let windowHeight = window.innerHeight; // 스크린 창
         let fullHeight = document.body.scrollHeight; //  margin 값은 포함 x
-        console.log(scrollLocation +" "+  windowHeight+" "+fullHeight)
+        // console.log(scrollLocation +" "+  windowHeight+" "+fullHeight)
         if(scrollLocation > 60 ){
             this.trg_scroll = true
         }
