@@ -26,9 +26,24 @@ components: {
         }
     },
     mounted() {
-      this.get_api()
+      //this.get_api()
+      this.test()
     },
     methods: {
+      async test() {
+        const axios = require('axios');
+        axios.get("https://definitely-handy-cow.ngrok-free.app/api/foot/standings",{
+            headers: {
+                'ngrok-skip-browser-warning': '69420'
+            }
+        }).then(response => {
+            console.log(response)
+          })
+          .catch(error => {
+            console.error('Error:', error.message);
+          });
+      },
+
       async get_api() {
         const axios = require('axios');
         axios.get("https://api-football-standings.azharimm.dev/leagues/eng.1/standings?season=2023&sort=asc").then(response => {
