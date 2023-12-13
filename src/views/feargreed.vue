@@ -180,8 +180,8 @@ components: {
         }
     },
     mounted() {
-      //this.getBitcoinRSI()
-      this.tmp_get_upbit_ubci()
+      //this.tmp_get_upbit_ubci()
+      this.get_upbit_ubci()
     },
     beforeDestroy () {
 
@@ -203,7 +203,11 @@ components: {
       },
       async get_upbit_ubci() {
         const axios = require('axios');
-        axios.get('https://cors-anywhere.herokuapp.com/https://ubci-api.ubcindex.com/v1/crix/feargreed').then(response => {
+        axios.get('https://definitely-handy-cow.ngrok-free.app/api/feargreed',{
+            headers: {
+                'ngrok-skip-browser-warning': '69420'
+            }
+        }).then(response => {
             this.api_value = response.data;
 
             /* MAKE */
@@ -219,6 +223,7 @@ components: {
           })
           .catch(error => {
             console.error('Error:', error.message);
+            this.tmp_get_upbit_ubci()
           });
       },
 
