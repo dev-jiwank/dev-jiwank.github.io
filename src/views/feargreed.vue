@@ -11,7 +11,7 @@
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
-        <span>{{ "Cryptocurrency Fear & Greed index"+ " / (현재 API 권한 문제로 임시 data 값 사용 중)"}}</span>
+        <span>{{ "Cryptocurrency Fear & Greed index"}}</span>
       </div>
     </template>
     <div style="text-align:center;">
