@@ -7,14 +7,17 @@
                     <MenuItem name="home" @click="router_go_to_name('home')">
                         Home
                     </MenuItem>
-                    <Submenu name="fear-and-greed">
+                    <MenuItem name="projectcard" @click="router_go_to_name('projectcard')">
+                        Project
+                    </MenuItem>
+                    <!-- <Submenu name="fear-and-greed">
                         <template #title>
-                        <!-- <Icon type="ios-stats" /> -->
+                        <Icon type="ios-stats" />
                         Project
                         </template>
                             <MenuItem name="fear-and-greed" @click="router_go_to_name('fear-and-greed')">{{ "Fear & Greed"}}</MenuItem>
                             <MenuItem name="soccer" @click="router_go_to_name('soccer')">{{ "EPL (Premier League)"}}</MenuItem>
-                    </Submenu>
+                    </Submenu> -->
                     </div>
                 </Menu>
             </Header>

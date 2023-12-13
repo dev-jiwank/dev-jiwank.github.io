@@ -2,8 +2,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Main from '@/views/main.vue'
 import project from '@/views/project.vue'
 import lure from '@/views/lure/index.vue'
-import feargreed from '@/views/feargreed.vue'
-import soccer from '@/views/score.vue'
+import feargreed from '@/views/feargreed/index.vue'
+import soccer from '@/views/score/index.vue'
+import projectcard from '@/views/projectcard.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/project/soccer',
     name: 'soccer',
     component: soccer
+  },
+  {
+    path: '/projectcard',
+    name: 'projectcard',
+    component: projectcard
   },
 ]
 
