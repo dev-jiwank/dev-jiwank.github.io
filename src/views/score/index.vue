@@ -6,8 +6,19 @@
         </Title>
     </Typography>
 </div> -->
-    <el-row :gutter="5">
-      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="9">
+<div>
+  <el-tabs v-model="activeName" class="football-tabs">
+      <el-tab-pane label="순위" name="standing" @click="activeName='standing'"></el-tab-pane>
+      <el-tab-pane label="일정" name="match" @click="activeName='match'">
+          <el-radio-group v-model="activeName_2" style="margin-bottom: 10px; text-align: center;" v-if="isMobile==true">
+            <el-radio-button label="start" @click="activeName_2='start'">{{'진행'}}</el-radio-button>
+            <el-radio-button label="end" @click="activeName_2='end'">{{'종료'}}</el-radio-button>
+          </el-radio-group>
+      </el-tab-pane>
+  </el-tabs>
+
+    <el-row :gutter="5" v-if="activeName=='standing'">
+      <el-col :xs="24" :sm="24" :md="24" :lg="10" :xl="10">
         <el-card class="box-card-score">
           <template #header>
             <div>
@@ -19,7 +30,21 @@
           </el-scrollbar>
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
+      <el-col :xs="24" :sm="24" :md="24" :lg="14" :xl="14">
+        <el-card class="box-card-score">
+          <template #header>
+            <div>
+              <span>{{ "분석"}}</span>
+            </div>
+          </template>
+          <el-scrollbar height="1000px">
+          </el-scrollbar>
+        </el-card>
+      </el-col>
+    </el-row>
+
+    <el-row :gutter="5" v-else-if="activeName=='match'&&isMobile==true">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" v-if="activeName_2=='start'">
         <el-card class="box-card-match">
           <template #header>
             <div>
@@ -31,7 +56,7 @@
           </el-scrollbar>
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="7">
+      <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" v-else-if="activeName_2=='end'">
         <el-card class="box-card-match">
           <template #header>
             <div>
@@ -45,22 +70,65 @@
       </el-col>
     </el-row>
 
+    <el-row :gutter="5" v-else-if="activeName=='match'&&isMobile==false">
+      <!-- <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="9">
+        <el-card class="box-card-score">
+          <template #header>
+            <div>
+              <span>{{ "순위 (Standings)"}}</span>
+            </div>
+          </template>
+          <el-scrollbar height="1000px">
+          <standing></standing>
+          </el-scrollbar>
+        </el-card>
+      </el-col> -->
+      <el-col :xs="24" :sm="24" :md="24" :lg="10" :xl="10">
+        <el-card class="box-card-match">
+          <template #header>
+            <div>
+              <span>{{ "경기 일정"}}</span>
+            </div>
+          </template>
+          <el-scrollbar height="1000px" always>
+          <match :someProp="'match'"></match>
+          </el-scrollbar>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="24" :md="24" :lg="14" :xl="14">
+        <el-card class="box-card-match">
+          <template #header>
+            <div>
+              <span>{{ "종료 일정"}}</span>
+            </div>
+          </template>
+          <el-scrollbar height="1000px" always>
+          <match :someProp="'match-end'"></match>
+          </el-scrollbar>
+        </el-card>
+      </el-col>
+    </el-row>
+</div>
+
 
 </template>
 <script>
 import standing from './standing.vue'
 import match from './match.vue'
+import mobileCheck from "../../shared/mobilecheck.js";
 
 export default {
-components: {
-  standing,
-  match
-},
+    components: {
+      standing,
+      match
+    },
+    mixins: [mobileCheck],
     data() {
         return {
-
+          activeName : 'standing',
+          activeName_2 : 'start'
         }
-    }
+    },
 }
 </script>
 
@@ -75,7 +143,15 @@ components: {
     }
   }
 
-
+  .football-tabs {
+    margin: 0px 10px 0;
+  }
+  /* .football-tabs > .el-tabs__content {
+    padding: 32px;
+    color: #6b778c;
+    font-size: 32px;
+    font-weight: 600;
+  } */
   /* .el-col {
     border-radius: 4px;
   }

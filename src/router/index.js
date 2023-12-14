@@ -12,11 +12,11 @@ const routes = [
     name: 'home',
     component: Main,
   },
-  {
-    path: '/project',
-    name: 'project',
-    component: project
-  },
+  // {
+  //   path: '/project',
+  //   name: 'project',
+  //   component: project
+  // },
   {
     path: '/lure',
     name: 'lure',
@@ -33,8 +33,8 @@ const routes = [
     component: soccer
   },
   {
-    path: '/projectcard',
-    name: 'projectcard',
+    path: '/project',
+    name: 'project',
     component: projectcard
   },
 ]

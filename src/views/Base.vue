@@ -1,13 +1,13 @@
 <template>
     <div class="layout">
         <Layout>
-            <Header v-if="!header_hidden" :hidden="false" :style="{position: 'fixed', width: '100%', background: 'white'}">
+            <Header v-if="this.$route.name!=='soccer'" :hidden="false" :style="{position: 'fixed', width: '100%', background: 'white'}">
                 <Menu mode="horizontal" theme="light" :active-name="this.$route.name">
                     <div class="layout-nav">
                     <MenuItem name="home" @click="router_go_to_name('home')">
                         Home
                     </MenuItem>
-                    <MenuItem name="projectcard" @click="router_go_to_name('projectcard')">
+                    <MenuItem name="project" @click="router_go_to_name('project')">
                         Project
                     </MenuItem>
                     <!-- <Submenu name="fear-and-greed">
@@ -81,7 +81,7 @@
                     </div>
                 </Menu> -->
             </Header>
-            <Content class="content-layout">
+            <Content :class="this.$route.name!=='soccer' ? 'content-layout' : 'content-layout-prj'" :style="{ marginTop: this.$route.name!=='soccer' ? '70px' : '0' }">
                 <router-view></router-view>
             </Content>
             <Footer class="layout-footer-center"> &copy; Jiwan Kim </Footer>
@@ -153,6 +153,9 @@ export default {
         margin: 70px 10px 0;
         background: #fff;
         min-height: 650px;
+    }
+    .content-layout-prj{
+        margin: 0px 10px 0;
     }
     .dev-run-preview .dev-run-preview-edit{ display: none }
     .demo-drawer-profile{
