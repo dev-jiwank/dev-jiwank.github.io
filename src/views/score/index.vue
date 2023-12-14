@@ -51,7 +51,7 @@
               <span>{{ "경기 일정"}}</span>
             </div>
           </template>
-          <el-scrollbar height="1000px" always>
+          <el-scrollbar :height="scrollbarHeight" always>
           <match :someProp="'match'"></match>
           </el-scrollbar>
         </el-card>
@@ -125,9 +125,26 @@ export default {
     mixins: [mobileCheck],
     data() {
         return {
+          scrollbarHeight: null,
           activeName : 'standing',
           activeName_2 : 'start'
         }
+    },
+    mounted() {
+      this.adjustScrollbarHeight();
+      window.addEventListener('resize', this.adjustScrollbarHeight);
+    },
+
+    beforeDestroy() {
+      window.removeEventListener('resize', this.adjustScrollbarHeight);
+    },
+
+    methods: {
+      adjustScrollbarHeight() {
+        const windowHeight = window.innerHeight;
+        const desiredHeight = windowHeight - 285;
+        this.scrollbarHeight = `${desiredHeight}px`;
+      },
     },
 }
 </script>
