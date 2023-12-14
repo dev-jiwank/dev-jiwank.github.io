@@ -77,9 +77,7 @@ components: {
       this.isMobile = window.innerWidth < 768;
       window.addEventListener('resize', this.updateIsMobile);
 
-      //this.get_api_standing()
-
-      this.localtest()
+      process.env.NODE_ENV=='development' ? this.localtest() : this.get_api_standing()
     },
     beforeDestroy() {
       window.removeEventListener('resize', this.updateIsMobile);

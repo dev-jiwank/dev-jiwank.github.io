@@ -5,14 +5,16 @@
         :data="timedtableData"
         style="width: 100%;">
         <el-table-column
-          property="utcDate"
+          property="krwDate"
           label="날짜">
         </el-table-column>
         <el-table-column
+          sortable
           property="homeTeam.name"
           label="홈팀">
         </el-table-column>
         <el-table-column
+          sortable
           property="awayTeam.name"
           label="어웨이팀">
         </el-table-column>
@@ -23,14 +25,13 @@
         :data="endtableData"
         style="width: 100%;">
         <el-table-column
-          property="utcDate"
-          label="날짜"
-          width="200">
+          property="krwDate"
+          label="날짜">
         </el-table-column>
         <el-table-column
+          sortable
           property="homeTeam.name"
-          label="홈팀"
-          width="200">
+          label="홈팀">
         </el-table-column>
 
         <el-table-column
@@ -40,9 +41,9 @@
         </el-table-column>
 
         <el-table-column
+          sortable
           property="awayTeam.name"
-          label="어웨이팀"
-          width="200">
+          label="어웨이팀">
         </el-table-column>
       </el-table>
       <!-- <div style="text-align:center; margin:25px;">
@@ -78,9 +79,7 @@ components: {
         }
     },
     mounted() {
-      this.get_api_match()
-
-      //this.localtest()
+      process.env.NODE_ENV=='development' ? this.localtest() : this.get_api_match()
     },
     methods: {
       async get_api_match() {
@@ -91,14 +90,23 @@ components: {
             }
         }).then(response => {
             this.standingtableData = response.data[0].matches
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Seoul' };
 
             this.standingtableData.forEach(element => {
+              const utcDate = new Date(element.utcDate);
+              const koreanDate = new Intl.DateTimeFormat('en-US', options).format(utcDate);
+              const parts = koreanDate.split(', ')[0].split('/');
+              const formattedDate = `${parts[2]}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`;
+
+              element.krwDate = formattedDate+" "+koreanDate.split(', ')[1]
+              element.krwTime = koreanDate.split(', ')[1]
+
               if(element.status=='FINISHED') {
                 element.fullscore = element.score.fullTime.home+":"+element.score.fullTime.away
                 this.endtableData.push(element)
               }
               else if(element.status=='SCHEDULED') {
-
+                this.timedtableData.push(element)
               }
               else if(element.status=='TIMED') {
                 this.timedtableData.push(element)
@@ -112,14 +120,23 @@ components: {
 
       async localtest() {
         this.standingtableData = this.json_data[0].matches
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'Asia/Seoul' };
 
         this.standingtableData.forEach(element => {
+          const utcDate = new Date(element.utcDate);
+          const koreanDate = new Intl.DateTimeFormat('en-US', options).format(utcDate);
+          const parts = koreanDate.split(', ')[0].split('/');
+          const formattedDate = `${parts[2]}-${parts[0].padStart(2, '0')}-${parts[1].padStart(2, '0')}`;
+
+          element.krwDate = formattedDate+" "+koreanDate.split(', ')[1]
+          element.krwTime = koreanDate.split(', ')[1]
+
           if(element.status=='FINISHED') {
             element.fullscore = element.score.fullTime.home+":"+element.score.fullTime.away
             this.endtableData.push(element)
           }
           else if(element.status=='SCHEDULED') {
-
+            this.timedtableData.push(element)
           }
           else if(element.status=='TIMED') {
             this.timedtableData.push(element)

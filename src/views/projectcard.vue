@@ -18,9 +18,7 @@
                             <span>{{ "Fear & Greed of Crypto" }}</span>
                         </div>
                     </template>
-                    <div style="text-align:center;">
-                        {{"IMAGE WILL BE HERE"}}
-                    </div>
+                    <Image :src="this.imgList[0]" />
                 </el-card>
             </el-col>
             <el-col :span="12" @click="router_go_to_name('soccer')"> 
@@ -31,8 +29,13 @@
                         </div>
                     </template>
                     <div style="text-align:center;">
-                        {{"IMAGE WILL BE HERE"}}
+                        {{"IMAGE WILL BE HERE"}}<br>
+                        {{"NOW PROJECT IS IN PROGRESS"}}
                     </div>
+                    <!-- <img
+                        src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                        class="image"
+                    /> -->
                 </el-card>
             </el-col>
             <!-- <el-col :span="8">
@@ -53,10 +56,17 @@
 
 </template>
 <script>
+import fgimg from '@/assets/feargreedimg.png'
     export default {
+        components: {
+            fgimg,
+        },
         data () {
             return {
                 title_pp : 'Solo Project',
+                imgList : [
+                    fgimg
+                ]
             }
         },
         methods : {
@@ -90,4 +100,8 @@
             max-width: none;
         }
     }
+    /* .image {
+        width: 100%;
+        display: block;
+    } */
 </style>
