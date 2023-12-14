@@ -90,9 +90,9 @@
               <span>{{ "경기 일정"}}</span>
             </div>
           </template>
-          <el-scrollbar height="1000px" always>
+          <!-- <el-scrollbar height="1000px" always> -->
           <match :someProp="'match'"></match>
-          </el-scrollbar>
+          <!-- </el-scrollbar> -->
         </el-card>
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="14" :xl="14">
@@ -102,9 +102,9 @@
               <span>{{ "종료 일정"}}</span>
             </div>
           </template>
-          <el-scrollbar height="1000px" always>
+          <!-- <el-scrollbar height="1000px" always> -->
           <match :someProp="'match-end'"></match>
-          </el-scrollbar>
+          <!-- </el-scrollbar> -->
         </el-card>
       </el-col>
     </el-row>
