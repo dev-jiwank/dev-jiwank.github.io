@@ -7,34 +7,40 @@
     </Typography>
 </div> -->
     <el-row :gutter="5">
-      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="6">
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="9">
         <el-card class="box-card-score">
           <template #header>
             <div>
               <span>{{ "순위 (Standings)"}}</span>
             </div>
           </template>
+          <el-scrollbar height="1000px">
           <standing></standing>
+          </el-scrollbar>
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="9">
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="8">
         <el-card class="box-card-match">
           <template #header>
             <div>
               <span>{{ "경기 일정"}}</span>
             </div>
           </template>
+          <el-scrollbar height="1000px" always>
           <match :someProp="'match'"></match>
+          </el-scrollbar>
         </el-card>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="9">
+      <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="7">
         <el-card class="box-card-match">
           <template #header>
             <div>
               <span>{{ "종료 일정"}}</span>
             </div>
           </template>
+          <el-scrollbar height="1000px" always>
           <match :someProp="'match-end'"></match>
+          </el-scrollbar>
         </el-card>
       </el-col>
     </el-row>
