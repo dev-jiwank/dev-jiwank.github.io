@@ -17,6 +17,7 @@
       </el-tab-pane>
   </el-tabs>
 
+    <!-- FIRST TAB - PC / MOBILE -->
     <el-row :gutter="5" v-if="activeName=='standing'">
       <el-col :xs="24" :sm="24" :md="24" :lg="10" :xl="10">
         <el-card class="box-card-score">
@@ -38,11 +39,13 @@
             </div>
           </template>
           <el-scrollbar height="1000px">
+            <analyze></analyze>
           </el-scrollbar>
         </el-card>
       </el-col>
     </el-row>
 
+    <!-- SECOND TAB - MOBILE -->
     <el-row :gutter="5" v-else-if="activeName=='match'&&isMobile==true">
       <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" v-if="activeName_2=='start'">
         <el-card class="box-card-match">
@@ -63,13 +66,14 @@
               <span>{{ "종료 일정"}}</span>
             </div>
           </template>
-          <el-scrollbar height="1000px" always>
+          <el-scrollbar :height="scrollbarHeight" always>
           <match :someProp="'match-end'"></match>
           </el-scrollbar>
         </el-card>
       </el-col>
     </el-row>
 
+    <!-- SECOND TAB - PC -->
     <el-row :gutter="5" v-else-if="activeName=='match'&&isMobile==false">
       <!-- <el-col :xs="24" :sm="24" :md="24" :lg="8" :xl="9">
         <el-card class="box-card-score">
@@ -115,12 +119,14 @@
 <script>
 import standing from './standing.vue'
 import match from './match.vue'
+import analyze from './analyze.vue'
 import mobileCheck from "../../shared/mobilecheck.js";
 
 export default {
     components: {
       standing,
-      match
+      match,
+      analyze
     },
     mixins: [mobileCheck],
     data() {
@@ -153,6 +159,7 @@ export default {
   @media screen and (max-width: 600px) {
     .box-card-score {
         margin: 0;
+        margin-top: 5px;
         width: auto; /* or any other value suitable for mobile screens */
     }
     .el-row .el-col {
