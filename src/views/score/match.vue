@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-loading="this.matchLoading">
       <el-table v-if="someProp=='match'"
         align="center"
         :data="timedtableData"
@@ -74,7 +74,8 @@ components: {
           json_data : matchdatas,
           standingtableData : [],
           timedtableData : [],
-          endtableData : []
+          endtableData : [],
+          matchLoading : false
         }
     },
     mounted() {
@@ -82,6 +83,8 @@ components: {
     },
     methods: {
       async get_api_match() {
+        this.matchLoading = true  
+
         const axios = require('axios');
         axios.get("https://definitely-handy-cow.ngrok-free.app/api/foot/matches?matchday=23",{
             headers: {
@@ -110,6 +113,8 @@ components: {
               else if(element.status=='TIMED') {
                 this.timedtableData.push(element)
               }
+
+              this.matchLoading = false
             });
           })
           .catch(error => {

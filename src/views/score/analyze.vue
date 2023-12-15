@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-loading="dataLoaded">
         <el-descriptions border :column="4" direction="vertical">
             <template #title>
                 <div class="title-container-alyze">
@@ -133,6 +133,8 @@ components: {
         },
 
         async get_api_analyze() {
+            this.dataLoaded = true
+
             const axios = require('axios');
             axios.get("https://definitely-handy-cow.ngrok-free.app/api/foot/teams",{
                 headers: {
@@ -162,10 +164,12 @@ components: {
             this.selectteamtableData.squad=value.squad
             this.selectteamtableData.squad_3=this.chunks(value.squad , 3)
 
-            this.dataLoaded = true;
+            this.dataLoaded = false;
         },
 
         selectteamclick(value){
+          this.dataLoaded = true;
+
             localStorage.setItem('selectmyteam', value)
 
             var foundElement_select = this.teamtableData.find(function (team) {

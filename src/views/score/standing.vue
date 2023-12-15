@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-loading="this.standingLoading">
       <el-table
         align="center"
         :data="standingtableData"
@@ -70,7 +70,8 @@ components: {
           isMobile: false,
           currentRow: null,
           json_data : standingdatas,
-          standingtableData : []
+          standingtableData : [],
+          standingLoading : false
         }
     },
     mounted() {
@@ -84,6 +85,7 @@ components: {
     },
     methods: {
       async get_api_standing() {
+        this.standingLoading = true
         const axios = require('axios');
         axios.get("https://definitely-handy-cow.ngrok-free.app/api/foot/standings",{
             headers: {
@@ -103,6 +105,8 @@ components: {
             // if (standingtableteamname) {
             //   sessionStorage.setItem('list', standingtableteamname)
             // }
+
+            this.standingLoading = false
           })
           .catch(error => {
             console.error('Error:', error.message);
