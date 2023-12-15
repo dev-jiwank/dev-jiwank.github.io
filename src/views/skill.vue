@@ -9,8 +9,8 @@
     </div>
     
     <Grid :border="false" padding=24>
-        <GridItem :style="{width: '25%'}"></GridItem>
-        <GridItem :style="{width: '50%'}">
+        <GridItem :style="{width: '30%'}"></GridItem>
+        <GridItem :style="{width: '40%'}">
             <Card>
                 <div style="text-align:center">
                     <Tooltip content="HTML / CSS / JavaScript" placement="bottom">
@@ -19,10 +19,10 @@
                 </div>
             </Card>
         </GridItem>
-        <GridItem :style="{width: '25%'}"></GridItem>
+        <GridItem :style="{width: '30%'}"></GridItem>
     </Grid>
 
-    <Grid :col="4" :border="false" padding=0>
+    <Grid :col="4" :border="false" padding=0 style="margin: 0 50px 0;">
         <GridItem>
             <Card>
                 <div style="text-align:center">
