@@ -41,7 +41,7 @@
             <span>{{"스쿼드"}}</span>
           </div>
           <div style="margin-top:10px;">
-              <el-row :gutter="20" v-for="(team, index) in chunks(selectteamtableData.squad, 3)" :key="index">
+              <el-row :gutter="20" v-for="(team, index) in selectteamtableData.squad_3" :key="index">
                 <el-col :span="8" v-for="(item, innerIndex) in team" :key="innerIndex">
                   <el-collapse>
                         <el-collapse-item :title="item.name" :name="String(index+1)">
@@ -86,18 +86,19 @@ components: {
             clubColors: '',
             name : '',
             coach : '',
-            squad : []
+            squad : [],
+            squad_3 : []
           },
-        standingteamList: '',
-        options: [],
-        value: ''
+          standingteamList: '',
+          options: [],
+          value: ''
         }
     },
     mounted() {
         this.isMobile = window.innerWidth < 768;
         window.addEventListener('resize', this.updateIsMobile);
 
-        process.env.NODE_ENV=='development' ? this.localtest() : this.get_api_standing()
+        process.env.NODE_ENV=='development' ? this.localtest() : this.get_api_analyze()
     },
     beforeDestroy() {
         window.removeEventListener('resize', this.updateIsMobile);
@@ -131,7 +132,7 @@ components: {
             }
         },
 
-        async get_api_standing() {
+        async get_api_analyze() {
             const axios = require('axios');
             axios.get("https://definitely-handy-cow.ngrok-free.app/api/foot/teams",{
                 headers: {
@@ -159,10 +160,7 @@ components: {
             this.selectteamtableData.coach = value.coach.name
             this.selectteamtableData.img = value.crest
             this.selectteamtableData.squad=value.squad
-
-            this.selectteamtableData.squad.map((team, index) => {
-                return { ...team, num: String(index) };
-            });
+            this.selectteamtableData.squad_3=this.chunks(value.squad , 3)
 
             this.dataLoaded = true;
         },
