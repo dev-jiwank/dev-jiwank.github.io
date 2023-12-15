@@ -108,9 +108,9 @@ components: {
             this.teamtableData = value
             this.selectteamtableData = [];
 
-            this.standingteamList = sessionStorage.getItem('list');
+            const standingtableteamname= value.map(team => team.name)
 
-            const option = this.standingteamList.split(',').map((team, index) => ({
+            const option = standingtableteamname.map((team, index) => ({
               value: team,
               label: team
             }));
@@ -119,7 +119,7 @@ components: {
 
             try {
                 var foundElement = this.teamtableData.find(function (team) {
-                    return team.name == localStorage.getItem('teamNameWithPositionOne');
+                    return team.name == localStorage.getItem('selectmyteam');
                 });
 
                 if (foundElement) {
@@ -166,6 +166,8 @@ components: {
         },
 
         selectteamclick(value){
+            localStorage.setItem('selectmyteam', value)
+
             var foundElement_select = this.teamtableData.find(function (team) {
                 return team.name == value
             });

@@ -93,16 +93,16 @@ components: {
             this.json_data = response
             this.standingtableData = response.data[0].standings[0].table
 
-            const teamWithPositionOne = this.standingtableData.find(item => item.position === 1)
-            const standingtableteamname = this.standingtableData.map(team => team.team.name)
+            // const teamWithPositionOne = this.standingtableData.find(item => item.position === 1)
+            // const standingtableteamname = this.standingtableData.map(team => team.team.name)
 
-            if (teamWithPositionOne) {
-              localStorage.setItem('teamNameWithPositionOne', teamWithPositionOne.team.name);
-            }
+            // if (teamWithPositionOne) {
+            //   localStorage.setItem('teamNameWithPositionOne', teamWithPositionOne.team.name);
+            // }
 
-            if (standingtableteamname) {
-              sessionStorage.setItem('list', standingtableteamname)
-            }
+            // if (standingtableteamname) {
+            //   sessionStorage.setItem('list', standingtableteamname)
+            // }
           })
           .catch(error => {
             console.error('Error:', error.message);
@@ -111,16 +111,16 @@ components: {
       async localtest() {
         this.standingtableData = this.json_data[0].standings[0].table
 
-        const teamWithPositionOne = this.standingtableData.find(item => item.position === 1)
-        const standingtableteamname = this.standingtableData.map(team => team.team.name)
+        // const teamWithPositionOne = this.standingtableData.find(item => item.position === 1)
+        // const standingtableteamname = this.standingtableData.map(team => team.team.name)
 
-        if (teamWithPositionOne) {
-          localStorage.setItem('teamNameWithPositionOne', teamWithPositionOne.team.name);
-        }
+        // if (teamWithPositionOne) {
+        //   localStorage.setItem('teamNameWithPositionOne', teamWithPositionOne.team.name);
+        // }
 
-        if (standingtableteamname) {
-          sessionStorage.setItem('list', standingtableteamname)
-        }
+        // if (standingtableteamname) {
+        //   sessionStorage.setItem('list', standingtableteamname)
+        // }
       },
 
       tableRowClassName({row, rowIndex}) {
