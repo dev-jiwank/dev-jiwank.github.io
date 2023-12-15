@@ -26,9 +26,7 @@
               <span>{{ "순위 (Standings)"}}</span>
             </div>
           </template>
-          <el-scrollbar height="1000px">
           <standing></standing>
-          </el-scrollbar>
         </el-card>
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="14" :xl="14">
@@ -38,9 +36,7 @@
               <span>{{ "분석"}}</span>
             </div>
           </template>
-          <el-scrollbar height="1000px">
             <analyze></analyze>
-          </el-scrollbar>
         </el-card>
       </el-col>
     </el-row>

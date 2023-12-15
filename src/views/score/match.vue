@@ -11,12 +11,12 @@
         <el-table-column
           sortable
           property="homeTeam.shortName"
-          label="홈팀">
+          label="홈">
         </el-table-column>
         <el-table-column
           sortable
           property="awayTeam.shortName"
-          label="어웨이팀">
+          label="원정">
         </el-table-column>
       </el-table>
 
@@ -31,18 +31,18 @@
         <el-table-column
           sortable
           property="homeTeam.shortName"
-          label="홈팀">
+          label="홈">
         </el-table-column>
 
         <el-table-column
           sortable
           property="awayTeam.shortName"
-          label="어웨이팀">
+          label="원정">
         </el-table-column>
 
         <el-table-column
           property="fullscore"
-          label="점수">
+          label="결과">
         </el-table-column>
       </el-table>
       <!-- <div style="text-align:center; margin:25px;">
