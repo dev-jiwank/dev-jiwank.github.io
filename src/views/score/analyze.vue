@@ -5,7 +5,17 @@
                 <div class="title-container-alyze">
                     <img :src="this.selectteamtableData.img" class="image-alyze" />
                     <div class="text-container-alyze">
-                        <div class="team-name-alyze">{{ this.selectteamtableData.name }}</div>
+                        <div>
+                            <el-select v-model="this.selectteamtableData.name" placeholder="Select">
+                              <el-option
+                                v-for="item in options"
+                                :key="item.value"
+                                :label="item.label"
+                                :value="item.value"
+                                @click="selectteamclick(item.value)">
+                              </el-option>
+                            </el-select>
+                        </div>
                         {{"감독 : "+this.selectteamtableData.coach }}
                     </div>
                 </div>
@@ -77,7 +87,10 @@ components: {
             name : '',
             coach : '',
             squad : []
-          }
+          },
+        standingteamList: '',
+        options: [],
+        value: ''
         }
     },
     mounted() {
@@ -90,24 +103,18 @@ components: {
         window.removeEventListener('resize', this.updateIsMobile);
     },
     methods: {
-        async get_api_standing() {
-            const axios = require('axios');
-            axios.get("https://definitely-handy-cow.ngrok-free.app/api/foot/teams",{
-                headers: {
-                    'ngrok-skip-browser-warning': '69420'
-                }
-            }).then(response => {
-                this.json_data = response
-                this.standingtableData = response.data[0].standings[0].table
-            })
-            .catch(error => {
-                console.error('Error:', error.message);
-            });
-        },
-
-        async localtest() {
-            this.teamtableData = this.json_data.data[0].teams;
+        async api_analyze(value){
+            this.teamtableData = value
             this.selectteamtableData = [];
+
+            this.standingteamList = sessionStorage.getItem('list');
+
+            const option = this.standingteamList.split(',').map((team, index) => ({
+              value: team,
+              label: team
+            }));
+
+            this.options = option
 
             try {
                 var foundElement = this.teamtableData.find(function (team) {
@@ -117,11 +124,30 @@ components: {
                 if (foundElement) {
                     this.generate_analyze_table(foundElement)
                 } else {
-                    this.generate_analyze_table(foundElement)
+                    this.generate_analyze_table(this.teamtableData[0])
                 }
             } catch (error) {
                 console.error('에러 발생:', error);
             }
+        },
+
+        async get_api_standing() {
+            const axios = require('axios');
+            axios.get("https://definitely-handy-cow.ngrok-free.app/api/foot/teams",{
+                headers: {
+                    'ngrok-skip-browser-warning': '69420'
+                }
+            }).then(response => {
+                this.json_data = response
+                this.api_analyze(response.data[0].teams)
+            })
+            .catch(error => {
+                console.error('Error:', error.message);
+            });
+        },
+
+        async localtest() {
+            this.api_analyze(this.json_data.data[0].teams)
         },
 
         generate_analyze_table(value){
@@ -139,6 +165,16 @@ components: {
             });
 
             this.dataLoaded = true;
+        },
+
+        selectteamclick(value){
+            var foundElement_select = this.teamtableData.find(function (team) {
+                return team.name == value
+            });
+
+            if (foundElement_select) {
+              this.generate_analyze_table(foundElement_select)
+            }
         },
 
         chunks(array, size) {
