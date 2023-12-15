@@ -12,7 +12,7 @@
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
-        <span>{{ "Cryptocurrency Fear & Greed index"}}</span>
+        <span>{{ "Cryptocurrency Fear & Greed index" }}</span>
       </div>
     </template>
     <div style="text-align:center;">
