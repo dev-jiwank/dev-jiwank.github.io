@@ -1,48 +1,45 @@
 <template>
-    <!-- <div style="text-align:center">
+
+<el-card class="box-card-pjc">
+    <div style="text-align:center">
         <Typography v-if="true">
-            <Title :level="2" class="title-left-padding">
-                {{ title_pp }}
+            <Title :level="3" class="title-left-padding">
+                {{ "Project List" }}
                 <Icon type="ios-man"/>
             </Title>
         </Typography>
-    </div> -->
-
-<el-card class="box-card-pjc">
-    <div style="margin-top:20px;">
-        <el-row :gutter="12" class="responsive-row-pjc">
-            <el-col :span="8"  @click="router_go_to_name('fear-and-greed')">
-                <el-card :shadow="'hover'">
+    </div>
+    <div>
+        <el-row class="responsive-row-pjc">
+            <el-col :span="24"  @click="router_go_to_name('fear-and-greed')">
+                <el-card :shadow="'hover'" style="margin:20px">
                     <template #header>
                         <div>
-                            <span>{{ "Fear & Greed of Crypto" }}</span>
+                            <span>{{ "* 암호화폐 투심 지수" }}</span>
                         </div>
                     </template>
-                    <Image :src="this.imgList[0]" />
-                </el-card>
-            </el-col>
-            <el-col :span="8" @click="router_go_to_name('soccer')"> 
-                <el-card :shadow="'hover'">
-                    <template #header>
-                        <div>
-                            <span>{{ "Premier League 1 (EPL) Overview" }}</span>
-                        </div>
-                    </template>
-                    <div style="text-align:center;">
-                        {{"IMAGE WILL BE HERE"}}<br>
-                        {{"NOW PROJECT IS IN PROGRESS"}}
+                    <div class="img-height-pjc">
+                        <Image :src="this.imgList[0]"/>
                     </div>
-                    <!-- <img
-                        src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-                        class="image"
-                    /> -->
                 </el-card>
             </el-col>
-            <el-col :span="8" @click="router_go_to_name('pok')"> 
-                <el-card :shadow="'hover'">
+            <el-col :span="24" @click="router_go_to_name('soccer')"> 
+                <el-card :shadow="'hover'" style="margin:20px">
                     <template #header>
                         <div>
-                            <span>{{ "Poke Wars - God of Pokemon" }}</span>
+                            <span>{{ "* 프리미어리그 순위/정보/일정" }}</span>
+                        </div>
+                    </template>
+                    <div class="img-height-pjc">
+                        <Image :src="this.imgList[1]"/>
+                    </div>
+                </el-card>
+            </el-col>
+            <el-col :span="24" @click="router_go_to_name('pok')"> 
+                <el-card :shadow="'hover'" style="margin:20px">
+                    <template #header>
+                        <div>
+                            <span>{{ "포켓몬 워 - God of Pokemon" }}</span>
                         </div>
                     </template>
                     <div style="text-align:center;">
@@ -74,15 +71,18 @@
 </template>
 <script>
 import fgimg from '@/assets/feargreedimg.png'
+import fbimg from '@/assets/football.png'
     export default {
         components: {
             fgimg,
+            fbimg
         },
         data () {
             return {
                 title_pp : 'Solo Project',
                 imgList : [
-                    fgimg
+                    fgimg,
+                    fbimg
                 ]
             }
         },
