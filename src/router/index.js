@@ -40,6 +40,7 @@ const routes = [
     component: pok
   },
   {
+    path: '/project/pok',
     name: 'pokinit',
     component: pokinit
   },
