@@ -4,6 +4,7 @@ import project from '@/views/project.vue'
 import lure from '@/views/lure/index.vue'
 import feargreed from '@/views/feargreed/index.vue'
 import soccer from '@/views/score/index.vue'
+import pok from '@/views/pokemon/index.vue'
 import projectcard from '@/views/projectcard.vue'
 
 const routes = [
@@ -31,6 +32,11 @@ const routes = [
     path: '/project/soccer',
     name: 'soccer',
     component: soccer
+  },
+  {
+    path: '/project/pok',
+    name: 'pok',
+    component: pok
   },
   {
     path: '/project',

@@ -11,7 +11,7 @@
 <el-card class="box-card-pjc">
     <div style="margin-top:20px;">
         <el-row :gutter="12" class="responsive-row-pjc">
-            <el-col :span="12"  @click="router_go_to_name('fear-and-greed')">
+            <el-col :span="8"  @click="router_go_to_name('fear-and-greed')">
                 <el-card :shadow="'hover'">
                     <template #header>
                         <div>
@@ -21,11 +21,28 @@
                     <Image :src="this.imgList[0]" />
                 </el-card>
             </el-col>
-            <el-col :span="12" @click="router_go_to_name('soccer')"> 
+            <el-col :span="8" @click="router_go_to_name('soccer')"> 
                 <el-card :shadow="'hover'">
                     <template #header>
                         <div>
                             <span>{{ "Premier League 1 (EPL) Overview" }}</span>
+                        </div>
+                    </template>
+                    <div style="text-align:center;">
+                        {{"IMAGE WILL BE HERE"}}<br>
+                        {{"NOW PROJECT IS IN PROGRESS"}}
+                    </div>
+                    <!-- <img
+                        src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                        class="image"
+                    /> -->
+                </el-card>
+            </el-col>
+            <el-col :span="8" @click="router_go_to_name('pok')"> 
+                <el-card :shadow="'hover'">
+                    <template #header>
+                        <div>
+                            <span>{{ "Poke Wars - God of Pokemon" }}</span>
                         </div>
                     </template>
                     <div style="text-align:center;">

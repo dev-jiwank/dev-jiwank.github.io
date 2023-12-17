@@ -33,7 +33,7 @@
         <el-card class="box-card-score">
           <template #header>
             <div>
-              <span>{{ "분석"}}</span>
+              <span>{{ "정보" }}</span>
             </div>
           </template>
             <analyze></analyze>
