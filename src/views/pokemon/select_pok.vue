@@ -23,9 +23,9 @@
                     </el-col>
             </el-row>
 
-            <div style="text-align: center; margin-top: 30px;" @click="renew()">
-                <el-button style="width: 30%;" type="primary" round>{{ "다시 뽑기" }}</el-button>
-            </div>
+            <!-- <div style="text-align: center; margin-top: 30px;">
+                <Button type="primary">Primary</Button>
+            </div>     -->
         </el-card>
     </div>
 </template>
@@ -35,7 +35,9 @@ import axios from 'axios';
 import { ElMessage, ElMessageBox } from 'element-plus'
 
 export default {
-
+    components : {
+        ElMessageBox
+    },
     data() {
         return{
             pkm : [],
@@ -126,8 +128,14 @@ export default {
                     center: true,
                 }
             ).then(() => {
-                this.$emit('selectedPokemon', name);
-                this.$router.push({ name: 'pokinit' });
+                Promise.all([
+                    this.$store.commit('updateName', name),
+                    this.$store.dispatch('saveToLocalStorage'),
+                    this.$emit('selectedPokemon', name),
+                ]).finally(()=>{
+                    this.$router.push({ name: 'pokinit' });
+                })
+
                 // ElMessage({
                 //     type: 'success',
                 //     message: 'Delete completed',
