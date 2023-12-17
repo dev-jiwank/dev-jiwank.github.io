@@ -8,7 +8,7 @@
                     </Title>
                 </Typography>
             </div>
-            <el-row :gutter="20">
+            <el-row :gutter="20" v-loading="loading">
                     <el-col :span="8" v-for="(data, index) in pkm" :key="index">
                         <el-card  shadow="hover" @click="select_own_pok(data.name)">
                             <img :src="data.img" style="width: 100%; height: 100%;" />
@@ -16,11 +16,16 @@
                                 <span>{{ data.name }}</span>
                             </div>
                             <div style="text-align: center;" class="pok-desc">
-                                {{ "속성 : " }}<span v-for="(value, key) in data.type" :key="key">{{ value+" "}}</span>
+                                <div>{{ "[속성]" }}</div>
+                                <span v-for="(value, key) in data.type" :key="key">{{ value+" "}}</span>
                             </div>
                         </el-card>
                     </el-col>
             </el-row>
+
+            <div style="text-align: center; margin-top: 30px;" @click="renew()">
+                <el-button style="width: 30%;" type="primary" round>{{ "다시 뽑기" }}</el-button>
+            </div>
         </el-card>
     </div>
 </template>
@@ -56,7 +61,8 @@ export default {
                 {name:'페어리',value:"fairy"},
                 {name:'땅',value:"ground"},
                 {name:'고스트',value:"ghost"},
-            ]
+            ],
+            loading : false
         }
         
     },
@@ -77,6 +83,9 @@ export default {
                 ]).then(([pData, pSpec]) => {
                     if(pSpec.data.is_legendary||pSpec.data.is_mythical){
                         return this.getRandomNumbers(1, rannum)
+                    }
+                    else {
+                        this.loading = false
                     }
 
                     const typekornames = pData.data.types.map(item => {
@@ -117,6 +126,8 @@ export default {
                     center: true,
                 }
             ).then(() => {
+                this.$emit('selectedPokemon', name);
+                this.$router.push({ name: 'pokinit' });
                 // ElMessage({
                 //     type: 'success',
                 //     message: 'Delete completed',
@@ -130,6 +141,8 @@ export default {
         },
 
         getRandomNumbers(num, exec_array_number) {
+            this.loading = true
+
             const legendNum = num ? num : 3;
             const excludeNumbers = exec_array_number ? exec_array_number : [];
 
@@ -153,6 +166,11 @@ export default {
             }
 
             return this.get_api_pokemon(randomNumbers);
+        },
+
+        async renew(){
+            this.pkm = []
+            this.getRandomNumbers()
         }
     }
 }
