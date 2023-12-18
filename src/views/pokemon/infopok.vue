@@ -3,9 +3,10 @@
         <el-card>
             <div style="text-align:center">
                 <Typography>
-                    <Title :level="4">
+                    <!-- <Title :level="4">
                         {{ "[ 포켓몬 도감 ]" }}
-                    </Title>
+                    </Title> -->
+                    <Image :src="this.pokeimg[0]" style="max-width: 35%; height: auto;"/>
                 </Typography>
 
                 <!-- <Button type="primary" @click="modal = true">Display dialog box</Button> -->
@@ -81,15 +82,20 @@
 import axios from 'axios';
 import { ElMessage, ElMessageBox } from 'element-plus'
 import mobileCheck from "../../shared/mobilecheck.js";
+import pokelogo from '@/assets/pokemonlogo.png'
 
 export default {
     components : {
-        ElMessageBox
+        ElMessageBox,
+        pokelogo
     },
     mixins: [mobileCheck],
     data() {
         return{
             pkm : [],
+            pokeimg : [
+                pokelogo
+            ],
             pokemon : {
                 name : '',
                 img : '',
