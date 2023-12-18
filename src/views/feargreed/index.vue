@@ -8,7 +8,7 @@
     </Typography>
 </div> -->
 
-<div>
+<div v-loading="fg_loading">
   <el-card class="box-card">
     <template #header>
       <div class="card-header">
@@ -138,13 +138,13 @@
     </el-table>
   </div>
 
-  <div style="text-align:center; margin:25px;">
+  <!-- <div style="text-align:center; margin:25px;">
     <el-collapse>
       <el-collapse-item title="Current json Data" name="1">
         <div>{{this.json_data}}</div>
       </el-collapse-item>
     </el-collapse>
-  </div>
+  </div> -->
 </div>
 </template>
 <script>
@@ -177,10 +177,12 @@ components: {
               card_5 : false
             },
             FG_tableData : [],
-            json_data : datas
+            json_data : datas,
+            fg_loading : false
         }
     },
     mounted() {
+      this.fg_loading = true
       //this.tmp_get_upbit_ubci()
       this.get_upbit_ubci()
     },
@@ -201,6 +203,8 @@ components: {
 
             this.findDescriptionBox(Math.floor(this.pageForm.fields.CURRENT_ALL_FG_POINT))
             this.factoringHistoryTable(this.api_value.intv)
+
+            this.fg_loading = false
       },
       async get_upbit_ubci() {
         const axios = require('axios');
@@ -221,6 +225,8 @@ components: {
 
             this.findDescriptionBox(Math.floor(this.pageForm.fields.CURRENT_ALL_FG_POINT))
             this.factoringHistoryTable(this.api_value.intv)
+
+            this.fg_loading = false
           })
           .catch(error => {
             console.error('Error:', error.message);
