@@ -109,6 +109,7 @@ export default {
                 {name:'땅',value:"ground"},
                 {name:'고스트',value:"ghost"},
             ],
+            once_trigger : true,
             loading : false,
             modal: false,
             modal_data : {
@@ -128,6 +129,11 @@ export default {
     },
     mounted(){
         this.loading = true
+
+        if(!this.isMobile&&once_trigger){
+            this.once_trigger = false
+            this.fetchData()
+        }
     },
     methods : {
         open_modal(data) {
