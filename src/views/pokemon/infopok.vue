@@ -3,8 +3,8 @@
         <el-card>
             <div style="text-align:center">
                 <Typography>
-                    <Title :level="5">
-                        {{ "[ 도감 ]" }}
+                    <Title :level="4">
+                        {{ "[ 포켓몬 도감 ]" }}
                     </Title>
                 </Typography>
 
@@ -12,9 +12,9 @@
                         <Option v-for="(option, index) in options1" :value="option.value" :key="index">{{option.label}}</Option>
                     </Select> -->
             </div>
-            <el-row v-loading="loading">
+            <el-row v-loading="loading" v-if="isMobile==true">
                     <el-col :span="8" v-for="(data, index) in pkm" :key="index">
-                        <el-card  shadow="hover" @click="select_own_pok(data.name)" style="margin:1px;">
+                        <el-card  shadow="hover" style="margin:1px;">
                             <img :src="data.img" style="width: 100%; height: 100%;" />
                                 <div style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: clip;">
                                     <span style="font-size: 9px;">{{ data.name }}</span>
@@ -26,10 +26,30 @@
                         </el-card>
                     </el-col>
             </el-row>
-            <div style="text-align:center; margin-top:10px;">
-                <Page :total="170" :model-value="1" @on-change="pageMove" size="small"/>
+
+            <el-row v-loading="loading" v-else-if="isMobile==false">
+                    <el-col :span="4" v-for="(data, index) in pkm" :key="index">
+                        <el-card  shadow="hover" style="margin:1px;">
+                            <img :src="data.img" style="width: 100%; height: 100%;" />
+                                <div style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: clip;">
+                                    <span style="font-size: 14px;">{{ data.name }}</span>
+                                </div>
+                            <div style="text-align: center;" class="pok-info">
+                                <div>{{ "No."+data.id }}</div>
+                                <!-- <span v-for="(value, key) in data.type" :key="key">{{ value+" "}}</span> -->
+                            </div>
+                        </el-card>
+                    </el-col>
+            </el-row>
+
+            <div class="pagination-container-info">
+                <el-pagination
+                layout="prev, pager, next"
+                :total="170"
+                @current-change="pageMove"
+                />
             </div>
-            <!-- <div style="text-align: center; margin-top: 30px;">
+        <!-- <div style="text-align: center; margin-top: 30px;">
                 <Button type="primary">Primary</Button>
             </div>     -->
         </el-card>
@@ -39,11 +59,13 @@
 <script>
 import axios from 'axios';
 import { ElMessage, ElMessageBox } from 'element-plus'
+import mobileCheck from "../../shared/mobilecheck.js";
 
 export default {
     components : {
         ElMessageBox
     },
+    mixins: [mobileCheck],
     data() {
         return{
             pkm : [],
@@ -75,14 +97,22 @@ export default {
         }
         
     },
+    watch: {
+        isMobile(a, b) {
+            this.fetchData()
+        },
+    },
     mounted(){
         this.loading = true
-
-        this.generateArrayByValue('1').then((select_array_3) => {
-            this.get_api_pokemon(select_array_3)
-        })
     },
     methods : {
+        async fetchData() {
+            this.pkm = []
+
+            this.generateArrayByValue('1').then((select_array_3) => {
+                this.get_api_pokemon(select_array_3)
+            })
+        },
         async pageMove(pageNum){
             this.pkm = []
 
@@ -92,15 +122,17 @@ export default {
         },
 
         async generateArrayByValue(value) {
+            let numofpage =  this.isMobile ? 9 : 12
+
             const maxNumber = 151;
-            const startNumber = (value - 1) * 9 + 1;
+            const startNumber = (value - 1) * numofpage + 1;
 
             if (startNumber > maxNumber) {
                 return [];
             }
 
             const resultArray = [];
-            for (let i = 0; i < 9; i++) {
+            for (let i = 0; i < numofpage; i++) {
                 const currentNumber = startNumber + i;
                 if (currentNumber <= maxNumber) {
                     resultArray.push(currentNumber);
@@ -121,7 +153,8 @@ export default {
                 axios.get(urlPokemon),
                 axios.get(urlPokemonSpec)
                 ]).then(([pData, pSpec]) => {
-                    console.log(pData.data, pSpec.data)
+                    // console.log(pData.data, pSpec.data)
+                    // console.log(pSpec.data.flavor_text_entries.find(item => item.language.name === "ko")?.flavor_text)
 
                     const typekornames = pData.data.types.map(item => {
                         const typeName = item.type.name;
@@ -133,7 +166,9 @@ export default {
                         name: pSpec.data.names.find(entry => entry.language.name === "ko")?.name,
                         img: urlPokemonImg,
                         type : typekornames,
-                        id : pSpec.data.id
+                        id : pSpec.data.id,
+                        stat : pData.data.stats,
+                        desc : pSpec.data.flavor_text_entries.find(item => item.language.name === "ko")?.flavor_text
                     });
 
                 }).finally(()=>{
@@ -167,5 +202,10 @@ export default {
     .pok-info {
         font-size: 12px;
         color: #999;
+    }
+    .pagination-container-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
