@@ -8,13 +8,29 @@
                     </Title>
                 </Typography>
 
+                <!-- <Button type="primary" @click="modal = true">Display dialog box</Button> -->
+                <Modal
+                    v-model="modal"
+                    footer-hide>
+                    <template #header>
+                        <p>
+                            <span> {{ "No. "+this.modal_data.id+" / "+this.modal_data.name }} </span>
+                        </p>
+                    </template>
+                    <p>{{ this.modal_data.desc }}</p>
+                    <!-- <hr>
+                    <p>{{ this.modal_data.type }}</p>
+                    <hr>
+                    <p>{{ this.modal_data.stat }}</p> -->
+                </Modal>
+
                     <!-- <Select placeholder="find">
                         <Option v-for="(option, index) in options1" :value="option.value" :key="index">{{option.label}}</Option>
                     </Select> -->
             </div>
             <el-row v-loading="loading" v-if="isMobile==true">
                     <el-col :span="8" v-for="(data, index) in pkm" :key="index">
-                        <el-card  shadow="hover" style="margin:1px;">
+                        <el-card  shadow="hover" style="margin:1px;" @click="open_modal(data)">
                             <img :src="data.img" style="width: 100%; height: 100%;" />
                                 <div style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: clip;">
                                     <span style="font-size: 9px;">{{ data.name }}</span>
@@ -29,7 +45,7 @@
 
             <el-row v-loading="loading" v-else-if="isMobile==false">
                     <el-col :span="4" v-for="(data, index) in pkm" :key="index">
-                        <el-card  shadow="hover" style="margin:1px;">
+                        <el-card  shadow="hover" style="margin:1px;" @click="open_modal(pkm)">
                             <img :src="data.img" style="width: 100%; height: 100%;" />
                                 <div style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: clip;">
                                     <span style="font-size: 14px;">{{ data.name }}</span>
@@ -93,7 +109,15 @@ export default {
                 {name:'땅',value:"ground"},
                 {name:'고스트',value:"ghost"},
             ],
-            loading : false
+            loading : false,
+            modal: false,
+            modal_data : {
+                name : '',
+                desc : '',
+                stat : '',
+                type : '',
+                id : ''
+            }
         }
         
     },
@@ -106,6 +130,16 @@ export default {
         this.loading = true
     },
     methods : {
+        open_modal(data) {
+            this.modal = true
+
+            this.modal_data.id = data.id
+            this.modal_data.name = data.name
+            this.modal_data.desc = data.desc
+            this.modal_data.stat = data.stat
+            this.modal_data.type = data.type
+        },
+
         async fetchData() {
             this.pkm = []
 
