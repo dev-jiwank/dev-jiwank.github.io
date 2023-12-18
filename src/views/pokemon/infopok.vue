@@ -17,6 +17,11 @@
                             <span> {{ "No. "+this.modal_data.id+" / "+this.modal_data.name }} </span>
                         </p>
                     </template>
+                    <p style="margin-bottom:10px;">
+                        <Tag size="large" v-for="(value, key) in modal_data.type" :key="key">
+                            {{ value }}
+                        </Tag>
+                    </p>
                     <p>{{ this.modal_data.desc }}</p>
                     <!-- <hr>
                     <p>{{ this.modal_data.type }}</p>
