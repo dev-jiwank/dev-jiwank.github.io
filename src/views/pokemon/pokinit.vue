@@ -1,18 +1,25 @@
 <template>
     <div>
-        <el-card class="box-card-pokinit" v-loading="data_loading">
-            <template #header>
-                <div class="card-header-pokinit">
-                    <span>{{ "ACCOUNT : "+this.$store.getters.getName}}</span>
-                </div>
-            </template>
-            <div>
-                <Button type="primary" @click="save()">Save</Button>
-            </div>
-            <template #footer>
+        <el-row :gutter="20" v-loading="loading">
+            <el-col :xs="24" :sm="24" :md="24" :lg="6" :xl="3">
+                <el-card class="box-card-pokinit">
+                    <template #header>
+                        <div class="card-header-pokinit">
+                            <Avatar shape="square" icon="ios-person" size="large" />
+                        </div>
+                    </template>
+                    <div>
+                        <Button type="primary" @click="save()">Message</Button>
+                    </div>
+                    <div>
+                        <Button type="primary" @click="save()">Save</Button>
+                    </div>
+                    <template #footer>
+                    </template>
+                </el-card>
+            </el-col>
+        </el-row>
 
-            </template>
-        </el-card>
     </div>
 </template>
 

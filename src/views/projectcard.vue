@@ -39,7 +39,7 @@
                 <el-card :shadow="'hover'" style="margin:20px">
                     <template #header>
                         <div>
-                            <span>{{ "포켓몬 워 - God of Pokemon" }}</span>
+                            <span>{{ "Pokemon (NOW IN PROGRESS)" }}</span>
                         </div>
                     </template>
                     <div style="text-align:center;">

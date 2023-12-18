@@ -1,19 +1,21 @@
 <template>
   <div>
-    <select_pok v-on:selectedPokemon="handleSelectedPokemon"></select_pok>
-    <!-- 선택된 포켓몬의 정보를 출력 -->
-    <div v-if="selectedPokemon">
+    <!-- <selectpok v-on:selectedPokemon="handleSelectedPokemon"></selectpok> -->
+    <infopok></infopok>
+    <!-- <div v-if="selectedPokemon">
       <h2>Selected Pokemon: {{ selectedPokemon }}</h2>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-import select_pok from './select_pok.vue'
+import selectpok from './select_pok.vue'
+import infopok from './infopok.vue'
 
 export default {
   components: {
-    select_pok
+    selectpok,
+    infopok
   },
   data() {
     return {
