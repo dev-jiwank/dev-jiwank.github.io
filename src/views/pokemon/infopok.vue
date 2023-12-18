@@ -37,28 +37,28 @@
                     <el-col :span="8" v-for="(data, index) in pkm" :key="index">
                         <el-card  shadow="hover" style="margin:1px;" @click="open_modal(data)">
                             <img :src="data.img" style="width: 100%; height: 100%;" />
+                                <div style="text-align: center; font-size: 9px;" class="pok-info">
+                                    <div>{{ "No."+data.id }}</div>
+                                    <!-- <span v-for="(value, key) in data.type" :key="key">{{ value+" "}}</span> -->
+                                </div>
                                 <div style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: clip;">
                                     <span style="font-size: 9px;">{{ data.name }}</span>
                                 </div>
-                            <div style="text-align: center;" class="pok-info">
-                                <div>{{ "No."+data.id }}</div>
-                                <!-- <span v-for="(value, key) in data.type" :key="key">{{ value+" "}}</span> -->
-                            </div>
                         </el-card>
                     </el-col>
             </el-row>
 
             <el-row v-loading="loading" v-else-if="isMobile==false">
                     <el-col :span="4" v-for="(data, index) in pkm" :key="index">
-                        <el-card  shadow="hover" style="margin:1px;" @click="open_modal(pkm)">
+                        <el-card  shadow="hover" style="margin:1px;" @click="open_modal(data)">
                             <img :src="data.img" style="width: 100%; height: 100%;" />
+                                <div style="text-align: center; font-size: 13px;" class="pok-info">
+                                    <div>{{ "No."+data.id }}</div>
+                                    <!-- <span v-for="(value, key) in data.type" :key="key">{{ value+" "}}</span> -->
+                                </div>
                                 <div style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: clip;">
                                     <span style="font-size: 14px;">{{ data.name }}</span>
                                 </div>
-                            <div style="text-align: center;" class="pok-info">
-                                <div>{{ "No."+data.id }}</div>
-                                <!-- <span v-for="(value, key) in data.type" :key="key">{{ value+" "}}</span> -->
-                            </div>
                         </el-card>
                     </el-col>
             </el-row>
@@ -135,7 +135,7 @@ export default {
     mounted(){
         this.loading = true
 
-        if(!this.isMobile&&once_trigger){
+        if(!this.isMobile&&this.once_trigger){
             this.once_trigger = false
             this.fetchData()
         }
@@ -245,7 +245,6 @@ export default {
         margin: 100px;
     }
     .pok-info {
-        font-size: 12px;
         color: #999;
     }
     .pagination-container-info {
