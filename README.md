@@ -1,5 +1,5 @@
 # [Project URL]
-     -  dev-jiwank.github.io
+     -  <dev-jiwank.github.io>
  ---
 # [Project Summary]
 #### Fear & greend Index
@@ -15,6 +15,6 @@
     - Node.js + Express + Vue.js
     - Desktop and mobile screen differentiation response
  ---
-# Build
+# [How to Build]
     1. npm install
     2. npm run serve
