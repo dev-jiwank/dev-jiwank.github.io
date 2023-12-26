@@ -24,75 +24,47 @@ export default {
       once_trigger_auto_scroll: true
     };
   },
-  mounted() {
-    window.addEventListener('resize', this.handleResize);
-    window.addEventListener('scroll', this.handleLocation);
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.handleResize);
-    window.removeEventListener('scroll', this.handleLocation);
-  },
-
-  methods: {
-    handleResize() {
-      this.myHeight = window.innerHeight
-      console.log(this.myHeight)
-    },
-    handleLocation() {
-      this.myLocation = document.documentElement.scrollTop
-      console.log(this.myHeight, this.myLocation)
-
-
-      if((this.myHeight/3<this.myLocation) && this.once_trigger_auto_scroll){
-        this.once_trigger_auto_scroll = false
-        this.scrollToBottom()
-      }
-      // else if((this.myHeight/2<this.myLocation) && this.once_trigger_auto_scroll == false) {
-      //   this.once_trigger_auto_scroll = true
-      //   this.scrollToTop()
-      // }
-
-    },
-
-    scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth' 
-      });
-    },
-    scrollToBottom() {
-      window.scrollTo({
-        top: this.myHeight+100,
-        behavior: 'smooth' 
-      });
-    }
-
-},
-
   // mounted() {
-  //   this.myheight = window.innerHeight;
+  //   window.addEventListener('resize', this.handleResize);
+  //   window.addEventListener('scroll', this.handleLocation);
+  // },
+  // beforeDestroy() {
+  //   window.removeEventListener('resize', this.handleResize);
+  //   window.removeEventListener('scroll', this.handleLocation);
+  // },
 
-  //   console.log(this.myheight)
+  // methods: {
+  //   handleResize() {
+  //     this.myHeight = window.innerHeight
+  //     console.log(this.myHeight)
+  //   },
+  //   handleLocation() {
+  //     this.myLocation = document.documentElement.scrollTop
+  //     console.log(this.myHeight, this.myLocation)
 
-    // let scrollTimeout;
+  //     if((this.myHeight/3<this.myLocation) && this.once_trigger_auto_scroll){
+  //       this.once_trigger_auto_scroll = false
+  //       this.scrollToBottom()
+  //     }
+  //     // else if((this.myHeight/2<this.myLocation) && this.once_trigger_auto_scroll == false) {
+  //     //   this.once_trigger_auto_scroll = true
+  //     //   this.scrollToTop()
+  //     // }
 
-    // this.handleScroll = () => {
-    //   clearTimeout(scrollTimeout);
+  //   },
 
-    //   scrollTimeout = setTimeout(() => {
-    //     let scrollLocation = document.documentElement.scrollTop;
-
-    //     if ((this.myheight / 5) < scrollLocation && this.once_trigger_auto_scroll) {
-    //       this.once_trigger_auto_scroll = false;
-    //       this.autoscroll();
-    //     }
-    //   }, 50);
-    // };
-
-    // window.addEventListener('scroll', this.handleScroll);
-
-  // destroyed() {
-  //   window.removeEventListener('scroll', this.handleScroll);
+  //   scrollToTop() {
+  //     window.scrollTo({
+  //       top: 0,
+  //       behavior: 'smooth' 
+  //     });
+  //   },
+  //   scrollToBottom() {
+  //     window.scrollTo({
+  //       top: this.myHeight+100,
+  //       behavior: 'smooth' 
+  //     });
+  //   }
   // },
 };
 </script>

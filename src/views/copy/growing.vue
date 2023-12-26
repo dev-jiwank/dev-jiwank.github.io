@@ -44,19 +44,19 @@ export default {
     border: none;
     background: none;
     padding: 0;
-    top: 65%; /* 화면 세로 중앙에 위치하는 기준점 */
-
+    top: 70%; /* 화면 세로 중앙에 위치하는 기준점 */
+    transform: translate(0%, -50%); 
 }
 
 /* SIZE OF BUTTON */
 .centered-button img {
-    width: 50%;
+    width: 80%;
     height: auto;
 }
 
 @media (max-width: 767px) {
     .centered-button img {
-        width: 100%;
+        width: 80%;
         height: auto;
     }
 }

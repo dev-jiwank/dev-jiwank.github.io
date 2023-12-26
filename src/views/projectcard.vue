@@ -35,6 +35,18 @@
                     </div>
                 </el-card>
             </el-col>
+            <el-col :span="24" @click="router_go_to_name('growing')"> 
+                <el-card :shadow="'hover'" style="margin:20px">
+                    <template #header>
+                        <div>
+                            <span>{{ "[Clone coding] 버섯커 키우기(by Joy-games)의 사전예약 페이지" }}</span>
+                        </div>
+                    </template>
+                    <div class="img-container ">
+                        <Image :src="this.imgList[2]"/>
+                    </div>
+                </el-card>
+            </el-col>
             <el-col :span="24" @click="router_go_to_name('pok')"> 
                 <el-card :shadow="'hover'" style="margin:20px">
                     <template #header>
@@ -72,17 +84,20 @@
 <script>
 import fgimg from '@/assets/feargreedimg.png'
 import fbimg from '@/assets/football.png'
+import cljyimg from '@/assets/clonejoygame.png'
     export default {
         components: {
             fgimg,
-            fbimg
+            fbimg,
+            cljyimg
         },
         data () {
             return {
                 title_pp : 'Solo Project',
                 imgList : [
                     fgimg,
-                    fbimg
+                    fbimg,
+                    cljyimg
                 ]
             }
         },
@@ -98,6 +113,12 @@ import fbimg from '@/assets/football.png'
     .box-card-pjc {
         margin: 50px;
         width: auto;
+    }
+    .img-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
     }
     @media screen and (max-width: 600px) {
         .box-card-pjc {
