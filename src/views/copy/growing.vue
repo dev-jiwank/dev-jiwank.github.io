@@ -44,7 +44,7 @@ export default {
     border: none;
     background: none;
     padding: 0;
-    top: 75%; /* 화면 세로 중앙에 위치하는 기준점 */
+    top: 65%; /* 화면 세로 중앙에 위치하는 기준점 */
 
 }
 
