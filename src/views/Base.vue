@@ -1,7 +1,7 @@
 <template>
     <div class="layout">
         <Layout>
-            <Header v-if="this.$route.name!=='none'" :hidden="false" :style="{position: 'fixed', width: '100%', background: 'white'}">
+            <Header v-if="this.$route.name!=='growing'" :hidden="false" :style="{position: 'fixed', width: '100%', background: 'white'}">
                 <Menu mode="horizontal" theme="light" :active-name="this.$route.name">
                     <div class="layout-nav">
                     <MenuItem name="home" @click="router_go_to_name('home')">
@@ -81,7 +81,7 @@
                     </div>
                 </Menu> -->
             </Header>
-            <Content :class="this.$route.name!=='none' ? 'content-layout' : 'content-layout-prj'" :style="{ marginTop: this.$route.name!=='none' ? '70px' : '0' }">
+            <Content :class="this.$route.name!=='growing' ? 'content-layout' : 'content-layout-prj'" :style="{ marginTop: this.$route.name!=='growing' ? '70px' : '0' }">
                 <router-view></router-view>
             </Content>
             <Footer class="layout-footer-center"> &copy; Jiwan Kim </Footer>
@@ -155,7 +155,7 @@ export default {
         min-height: 650px;
     }
     .content-layout-prj{
-        margin: 0px 10px 0;
+        margin: 0 0 0;
     }
     .dev-run-preview .dev-run-preview-edit{ display: none }
     .demo-drawer-profile{

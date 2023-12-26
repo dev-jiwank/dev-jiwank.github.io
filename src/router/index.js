@@ -7,6 +7,8 @@ import soccer from '@/views/score/index.vue'
 import pok from '@/views/pokemon/index.vue'
 import pokinit from '@/views/pokemon/pokinit.vue'
 import projectcard from '@/views/projectcard.vue'
+import test from '@/views/mechawar/index.vue'
+import growing from '@/views/copy/index.vue'
 
 const routes = [
   {
@@ -48,6 +50,16 @@ const routes = [
     path: '/project',
     name: 'project',
     component: projectcard
+  },
+  // {
+  //   path: '/test',
+  //   name: 'test',
+  //   component: test
+  // },
+  {
+    path: '/growing',
+    name: 'growing',
+    component: growing
   },
 ]
 
