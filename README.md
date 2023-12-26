@@ -10,6 +10,9 @@
     - Shows information about the current Premier League (Standing / Team Info / Match Schedule/Results)
     - Node.js + Express + Vue.js
     - Desktop and mobile screen differentiation response
+#### [Clone coding] pre-registration page by Joy Nice Games
+    - This is a game pre-registration clone coding project. (버섯커 키우기 - Joy Nice Games)
+    - Vue.js
 #### Pokemon
     - Development of various functions using Pokemon API
     - Node.js + Express + Vue.js
