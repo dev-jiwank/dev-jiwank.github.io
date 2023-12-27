@@ -1,7 +1,7 @@
 # [Home URL]
 <https://dev-jiwank.github.io/>
  ---
-# [Project Summary]
+# [My Project]
 ## <https://dev-jiwank.github.io/project>
 #### Fear & greend Index
     - Calculate cryptocurrency indicators into one Expressed as an exponent
