@@ -14,7 +14,6 @@
     - This is a game pre-registration clone coding project. (버섯커 키우기 - Joy Nice Games)
     - Use Vue.js
     - Desktop and mobile screen differentiation response
-    - <https://dev-jiwank.github.io/growing>
 #### Pokemon Info (1st generation)
     - Development of various functions using Pokemon API
     - Use Node.js + Express + Vue.js + Pokemon API
