@@ -10,7 +10,7 @@
     - Shows information about the current Premier League (Standing / Team Info / Match Schedule/Results)
     - Use Node.js + Express + Vue.js + football API
     - Desktop and mobile screen differentiation response
-#### [Clone coding] pre-registration page by Joy Nice Games
+#### [Clone coding] pre-registration page by Joy Nice Games - <https://dev-jiwank.github.io/growing>
     - This is a game pre-registration clone coding project. (버섯커 키우기 - Joy Nice Games)
     - Use Vue.js
     - Desktop and mobile screen differentiation response
