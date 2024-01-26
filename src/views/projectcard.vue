@@ -18,8 +18,8 @@
                             <span>{{ "* 암호화폐 투심 지수" }}</span>
                         </div>
                     </template>
-                    <div class="img-height-pjc">
-                        <Image :src="this.imgList[0]"/>
+                    <div class="image-container">
+                        <img :src="this.imgList[0]" class="centered-images" />
                     </div>
                 </el-card>
             </el-col>
@@ -30,8 +30,8 @@
                             <span>{{ "* 프리미어리그 순위/정보/일정" }}</span>
                         </div>
                     </template>
-                    <div class="img-height-pjc">
-                        <Image :src="this.imgList[1]"/>
+                    <div class="image-container">
+                        <img :src="this.imgList[1]" class="centered-images" />
                     </div>
                 </el-card>
             </el-col>
@@ -42,8 +42,8 @@
                             <span>{{ "* 버섯커 키우기 사전예약 (Clone by joy-games)" }}</span>
                         </div>
                     </template>
-                    <div class="img-container ">
-                        <Image :src="this.imgList[2]"/>
+                    <div class="image-container">
+                        <img :src="this.imgList[2]" class="centered-images" />
                     </div>
                 </el-card>
             </el-col>
@@ -54,8 +54,8 @@
                             <span>{{ "* 포켓몬 도감 1세대" }}</span>
                         </div>
                     </template>
-                    <div class="img-container ">
-                        <Image :src="this.imgList[3]"/>
+                    <div class="image-container">
+                        <img :src="this.imgList[3]" class="centered-images" />
                     </div>
                     <!-- <img
                         src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
@@ -112,6 +112,11 @@ import pkming from '@/assets/pokemonlogo.png'
 </script>
 
 <style scoped>
+    .centered-images {
+    max-width: 100%; 
+    max-height: 100%;
+    }
+
     .box-card-pjc {
         margin: 50px;
         width: auto;
