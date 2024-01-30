@@ -21,7 +21,7 @@
             <Paragraph>
                 <ul class="midul">
                     <li>무선랜 라우터를 위한 Non-Real-Time 리눅스 기반의 오픈 소스 운영 체제 개발</li>
-                    <li>Broadcom Chip을 베이스로 개발</li>
+                    <li>Broadcom (BCM339X) Linux 환경 개발</li>
                     <li>Makefile 구성, Package 추가, patch 개발</li>
                 </ul>
             </Paragraph>
