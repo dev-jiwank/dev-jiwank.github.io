@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <img :src="backgroundImageTop" class="background-top"/>
+        <img :src="backgroundImageTop" class="background-top" @load="handleImageLoad"/>
         <button class="centered-button">
-            <img src="@/assets/button_pre_resrvation.webp"/>
+            <img ref="centeredButtonImage" :src="buttonImage"/>
         </button>
     </div>
 </template>
@@ -12,8 +12,27 @@ export default {
     data() {
         return {
             backgroundImageTop: require('@/assets/background_first.webp'),
+            buttonImage: require('@/assets/button_pre_resrvation.webp')
         };
     },
+    methods: {
+        handleImageLoad() {
+            // 이미지가 로드되면 스타일을 적용
+            this.applyButtonStyle();
+        },
+        applyButtonStyle() {
+            // 이미지가 로드된 후에 버튼 이미지에 스타일 적용
+            const img = this.$refs.centeredButtonImage;
+            if (img) {
+                img.style.width = '80%';
+                img.style.height = 'auto';
+            }
+        }
+    },
+    mounted() {
+        // 페이지 로드 후 이미지 스타일 적용
+        this.applyButtonStyle();
+    }
 };
 </script>
 
@@ -49,15 +68,15 @@ export default {
 }
 
 /* SIZE OF BUTTON */
-.centered-button img {
+/* .centered-button img {
     width: 80%;
     height: auto;
-}
+} */
 
-@media (max-width: 767px) {
+/* @media (max-width: 767px) {
     .centered-button img {
         width: 80%;
         height: auto;
     }
-}
+} */
 </style>

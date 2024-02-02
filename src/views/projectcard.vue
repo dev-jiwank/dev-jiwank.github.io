@@ -10,51 +10,51 @@
         </Typography>
     </div>
     <div>
-        <el-row class="responsive-row-pjc">
-            <el-col :span="24"  @click="router_go_to_name('fear-and-greed')">
-                <el-card :shadow="'hover'" class="card-margin">
+        <el-row class="img-container">
+            <el-col :span="22"  @click="router_go_to_name('fear-and-greed')">
+                <el-card :shadow="'hover'">
                     <template #header>
                         <div>
                             <span>{{ "* 암호화폐 투심 지수" }}</span>
                         </div>
                     </template>
-                    <div class="image-container">
+                    <div class="img-container">
                         <img :src="this.imgList[0]" class="centered-images" />
                     </div>
                 </el-card>
             </el-col>
-            <el-col :span="24" @click="router_go_to_name('soccer')"> 
-                <el-card :shadow="'hover'" class="card-margin">
+            <el-col :span="22" @click="router_go_to_name('soccer')" style="margin:10px;">
+                <el-card :shadow="'hover'">
                     <template #header>
                         <div>
                             <span>{{ "* 프리미어리그 순위/정보/일정" }}</span>
                         </div>
                     </template>
-                    <div class="image-container">
+                    <div class="img-container">
                         <img :src="this.imgList[1]" class="centered-images" />
                     </div>
                 </el-card>
             </el-col>
-            <el-col :span="24" @click="router_go_to_name('growing')"> 
-                <el-card :shadow="'hover'" class="card-margin">
+            <el-col :span="22" @click="router_go_to_name('growing')" style="margin:10px;">
+                <el-card :shadow="'hover'">
                     <template #header>
                         <div>
                             <span>{{ "* 버섯커 키우기 사전예약 (Clone by joy-games)" }}</span>
                         </div>
                     </template>
-                    <div class="image-container">
+                    <div class="img-container">
                         <img :src="this.imgList[2]" class="centered-images" />
                     </div>
                 </el-card>
             </el-col>
-            <el-col :span="24" @click="router_go_to_name('pok')"> 
-                <el-card :shadow="'hover'" class="card-margin">
+            <el-col :span="22" @click="router_go_to_name('pok')" style="margin:10px;">
+                <el-card :shadow="'hover'">
                     <template #header>
                         <div>
                             <span>{{ "* 포켓몬 도감 1세대" }}</span>
                         </div>
                     </template>
-                    <div class="image-container">
+                    <div class="img-container">
                         <img :src="this.imgList[3]" class="centered-images" />
                     </div>
                     <!-- <img
@@ -128,7 +128,7 @@ import pkming from '@/assets/pokemonlogo.png'
 
     }
     .card-margin {
-        margin: 20px;
+        margin: 10px;
     }
     @media screen and (max-width: 600px) {
         .box-card-pjc {
@@ -138,17 +138,11 @@ import pkming from '@/assets/pokemonlogo.png'
         .el-row .el-col {
             margin-bottom: 10px;
         }
-        .responsive-row-pjc {
-        flex-direction: column;
-        }
         .el-col-8 {
             max-width: none;
         }
         .el-col-12 {
             max-width: none;
-        }
-        .card-margin {
-            margin: 5px;
         }
     }
     /* .image {
