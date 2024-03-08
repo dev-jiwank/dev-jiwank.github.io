@@ -63,6 +63,18 @@
                     /> -->
                 </el-card>
             </el-col>
+            <el-col :span="22" @click="router_go_to_name('devicedashboard')" style="margin:10px;">
+                <el-card :shadow="'hover'">
+                    <template #header>
+                        <div>
+                            <span>{{ "* Device Dashboard" }}</span>
+                        </div>
+                    </template>
+                    <div class="img-container">
+                        {{"Currently in progress"}}
+                    </div>
+                </el-card>
+            </el-col>
             <!-- <el-col :span="8">
                 <el-card :shadow="'hover'">
                     <template #header>
