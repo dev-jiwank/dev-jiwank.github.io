@@ -9,6 +9,8 @@ import locale from 'view-ui-plus/dist/locale/en-US';
 
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import { Bar } from 'vue-chartjs'
+
 // Vuetify
 // import 'vuetify/styles'
 // import { createVuetify } from 'vuetify'
@@ -27,5 +29,6 @@ app.use(store)
   .use(ViewUIPlus)
   .use({locale})
   .use(ElementPlus)
+  .use(Bar)
   // .use(vuetify)
   .mount('#app')
