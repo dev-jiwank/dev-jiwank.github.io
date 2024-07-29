@@ -1,5 +1,4 @@
 # [Home URL]
-<https://dev-jiwank.github.io/>
  ---
 # [My Project]
 ## <https://dev-jiwank.github.io/project>
